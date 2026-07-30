@@ -98,10 +98,34 @@
     .chart-shell{max-width:1320px;margin:auto;padding:12px;border:1px solid var(--line);border-radius:18px;background:var(--card);box-shadow:var(--shadow)}
     .chart-frame{height:620px;overflow:hidden;border-radius:12px;background:#e9e4d8}
     .chart-note{max-width:1320px;margin:14px auto 0;color:var(--muted);font-size:10px;line-height:1.7}
+    .live-console{max-width:1320px;margin:0 auto 18px;border:1px solid var(--line);border-radius:20px;background:var(--card);box-shadow:var(--shadow);overflow:hidden}
+    .live-bar{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line);background:#eee8dc}
+    .pulse{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(192,138,62,.13)}
+    .pulse.ok{background:var(--green);box-shadow:0 0 0 5px rgba(29,118,94,.13)}.pulse.error{background:var(--red)}
+    .live-bar strong{font-size:12px}.live-bar small{color:var(--muted);font-size:9px}.live-bar .btn{margin-left:auto;padding:9px 13px}
+    .index-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line)}
+    .index-card{padding:16px;background:var(--card)}.index-card span{display:block;color:var(--muted);font-size:9px}
+    .index-card strong{display:block;margin:7px 0 4px;font-family:Georgia,serif;font-size:22px}.index-card b{font-size:10px}
+    .up{color:var(--red)!important}.down{color:var(--green)!important}.flat{color:var(--muted)!important}
+    .market-tools{display:grid;grid-template-columns:minmax(280px,.7fr) minmax(0,1.3fr);gap:1px;background:var(--line);border-top:1px solid var(--line)}
+    .quote-search,.quote-result{padding:18px;background:var(--card)}.quote-search h3,.quote-result h3{margin:0 0 10px;font-size:13px}
+    .inline-form{display:flex;gap:8px}.inline-form input{margin:0;border-color:var(--line);background:white;color:var(--ink)}.inline-form .btn{white-space:nowrap}
+    .quote-result{min-height:112px}.quote-result p{margin:5px 0;color:var(--muted);font-size:10px;line-height:1.7}
+    .quote-kpis{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}.quote-kpis span{padding:7px 9px;border-radius:8px;background:#f0ece2;font-size:9px}
+    .brief-grid{max-width:1320px;margin:0 auto 14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .brief-card{padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--card)}.brief-card span{color:var(--red);font-size:8px;font-weight:900}.brief-card strong{display:block;margin:6px 0;font-size:12px}.brief-card p{margin:0;color:var(--muted);font-size:9px;line-height:1.7}
+    .pick-grid{max-width:1320px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .pick-card{padding:18px;border:1px solid var(--line);border-radius:17px;background:var(--card);box-shadow:0 9px 25px rgba(30,38,34,.05)}
+    .pick-top{display:flex;justify-content:space-between;gap:12px}.pick-agent{color:var(--red);font-size:8px;font-weight:900}.pick-score{padding:5px 8px;border-radius:999px;background:#eee8dc;color:#725531;font-size:9px;font-weight:900}
+    .pick-card h3{margin:9px 0 3px;font-size:18px}.pick-card h3 small{margin-left:6px;color:var(--muted);font-family:inherit;font-size:9px}
+    .pick-price{display:flex;align-items:baseline;gap:8px;margin:9px 0}.pick-price strong{font-family:Georgia,serif;font-size:23px}.pick-price b{font-size:10px}
+    .evidence{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px}.evidence div{padding:8px;border-radius:9px;background:#f0ece2}.evidence span{display:block;color:var(--muted);font-size:7px}.evidence strong{display:block;margin-top:3px;font-size:9px}
+    .pick-card p{margin:11px 0 0;color:var(--muted);font-size:9px;line-height:1.65}.pick-empty{grid-column:1/-1;padding:26px;text-align:center;color:var(--muted)}
+    .method-note{max-width:1320px;margin:14px auto 28px;padding:13px 15px;border:1px dashed #cfc7b7;border-radius:12px;color:var(--muted);font-size:9px;line-height:1.7}
     .warning{max-width:1320px;margin:20px auto 0;padding:15px;border:1px solid #d8c9a8;border-radius:12px;background:#f3ead7;color:#6f624b;font-size:10px;line-height:1.7}
     footer{padding:30px clamp(18px,5vw,76px);border-top:1px solid var(--line);color:var(--muted);font-size:9px;line-height:1.7}
-    @media(max-width:980px){nav{display:none}.hero,.director-grid,.sim-grid{grid-template-columns:1fr}.learn-grid{grid-template-columns:repeat(2,1fr)}.source-grid{grid-template-columns:1fr}.workflow{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:640px){.hero{padding-top:48px}.offline{margin-left:auto}.hero-card{padding:17px}.heading{grid-template-columns:1fr;gap:12px}.learn-grid,.workflow,.account-top{grid-template-columns:1fr}.workflow div{border-right:0;border-bottom:1px solid rgba(255,255,255,.09)}.field-row{grid-template-columns:1fr}.score-line{grid-template-columns:94px 1fr 28px}}
+    @media(max-width:980px){nav{display:none}.hero,.director-grid,.sim-grid,.market-tools{grid-template-columns:1fr}.learn-grid{grid-template-columns:repeat(2,1fr)}.source-grid{grid-template-columns:1fr}.workflow{grid-template-columns:repeat(2,1fr)}.index-grid{grid-template-columns:repeat(2,1fr)}.pick-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){.hero{padding-top:48px}.offline{margin-left:auto}.hero-card{padding:17px}.heading{grid-template-columns:1fr;gap:12px}.learn-grid,.workflow,.account-top,.brief-grid,.pick-grid{grid-template-columns:1fr}.workflow div{border-right:0;border-bottom:1px solid rgba(255,255,255,.09)}.field-row{grid-template-columns:1fr}.score-line{grid-template-columns:94px 1fr 28px}.index-grid{grid-template-columns:1fr}.chart-frame{height:480px}.live-bar{align-items:flex-start;flex-wrap:wrap}.live-bar .btn{margin-left:0}}
   </style>
 </head>
 <body>
@@ -159,7 +183,27 @@
     </section>
 
     <section class="section light" id="market">
-      <div class="heading"><div><p class="eyebrow">联网行情观察</p><h2>先看趋势与成交，再讨论股票优劣</h2></div><p>图表由第三方行情组件提供，可能存在延迟。切换代码、周期和指标进行观察，正式数据以交易所和正规券商终端为准。</p></div>
+      <div class="heading"><div><p class="eyebrow">A股近实时行情与研究员观察池</p><h2>数据先到场，研究员再发言</h2></div><p>指数与候选池每60秒自动刷新；单股可按代码查询。公开网络行情可能延迟或中断，不属于交易所授权的交易级行情。</p></div>
+      <div class="live-console">
+        <div class="live-bar"><i class="pulse" id="marketPulse"></i><strong id="marketStatus">正在连接行情…</strong><small id="marketUpdated">等待首次刷新</small><button class="btn secondary" id="refreshMarket" type="button">立即刷新</button></div>
+        <div class="index-grid" id="indexGrid"><div class="index-card"><span>加载中</span><strong>—</strong><b class="flat">—</b></div></div>
+        <div class="market-tools">
+          <form class="quote-search" id="quoteForm">
+            <h3>查询A股实时快照</h3>
+            <div class="inline-form"><input id="quoteCode" inputmode="numeric" maxlength="6" placeholder="输入6位代码，如 600519" required /><button class="btn" type="submit">查询</button></div>
+          </form>
+          <div class="quote-result" id="quoteResult"><h3>单股证据卡</h3><p>输入代码后显示最新价、涨跌幅、成交额、换手率、估值与资金流向。</p></div>
+        </div>
+      </div>
+      <div class="heading"><div><p class="eyebrow">部门研究员选股</p><h2>六个行业岗位，各提交一个研究对象</h2></div><p>系统从成交额靠前的高流动性样本中筛选，排除ST、极端涨跌和异常波动，再按趋势、流动性、估值、资金流和风险进行可解释评分。</p></div>
+      <div class="brief-grid" id="researchBrief">
+        <article class="brief-card"><span>AI-01 投研总监</span><strong>等待候选池</strong><p>行情加载完成后生成研究议题。</p></article>
+        <article class="brief-card"><span>AI-02 策略总监</span><strong>等待市场状态</strong><p>根据主要指数判断环境。</p></article>
+        <article class="brief-card"><span>AI-17 风控总监</span><strong>风险闸门待命</strong><p>极端波动标的不进入观察池。</p></article>
+      </div>
+      <div class="pick-grid" id="pickGrid"><div class="pick-empty">正在扫描高流动性A股样本…</div></div>
+      <div class="method-note">研究观察池不是买入清单：评分只使用公开行情快照和有限估值字段，无法替代财报核验、公告审查、行业调研和个人风险评估。候选股随行情变化，刷新后可能更换。</div>
+      <div class="heading"><div><p class="eyebrow">历史K线参考</p><h2>免费图表用于看结构，不用于核对实时成交</h2></div><p>TradingView 免费沪深行情通常延迟15分钟。实时快照看上方行情卡，K线形态与周期结构看下方图表。</p></div>
       <div class="chart-shell">
         <div class="chart-frame">
           <div class="tradingview-widget-container" style="height:100%;width:100%">
@@ -181,7 +225,7 @@
           </div>
         </div>
       </div>
-      <p class="chart-note">新手练习顺序：先判断指数环境，再看个股趋势；先看周线位置，再看日线结构；最后结合成交量、公告和财务证据。不要凭单根K线作决定。</p>
+      <p class="chart-note">新手练习顺序：先判断指数环境，再看个股趋势；先看周线位置，再看日线结构；最后结合成交量、公告和财务证据。不要凭单根K线或单次评分作决定。</p>
     </section>
 
     <section class="section light" id="learn">
@@ -280,6 +324,144 @@
     }
     scoreDefs.forEach(([key])=>document.querySelector("#"+key).addEventListener("input",updateMeeting));
     document.querySelector("#market").addEventListener("change",updateMeeting);document.querySelector("#hardRisk").addEventListener("change",updateMeeting);updateMeeting();
+
+    const marketApi="https://push2.eastmoney.com/api/qt";
+    const indexSecids="1.000001,0.399001,0.399006,1.000688,1.000300";
+    const marketFields="f12,f13,f14,f2,f3,f4,f5,f6,f7,f8,f9,f10,f15,f16,f17,f18,f20,f21,f23,f24,f25,f62,f100";
+    const quoteFields="f57,f58,f43,f44,f45,f46,f47,f48,f50,f60,f116,f117,f162,f167,f168,f169,f170";
+    const researcherDefs=[
+      {agent:"AI-05 硅瞳",role:"TMT研究员",keys:["半导体","软件开发","计算机设备","通信设备","互联网服务","元件","光学光电子","消费电子"]},
+      {agent:"AI-06 机衡",role:"高端制造研究员",keys:["自动化设备","通用设备","专用设备","工程机械","航天航空","船舶制造","轨交设备"]},
+      {agent:"AI-07 绿驰",role:"新能源与汽车研究员",keys:["电池","汽车整车","汽车零部件","光伏设备","风电设备","电网设备","电机"]},
+      {agent:"AI-08 常青",role:"消费研究员",keys:["白酒","食品饮料","家电行业","商业百货","旅游酒店","农牧饲渔","食品加工","饮料乳品"]},
+      {agent:"AI-09 杏林",role:"医药研究员",keys:["化学制药","生物制品","医疗器械","医疗服务","中药","医药商业"]},
+      {agent:"AI-10 周砺",role:"金融周期研究员",keys:["银行","证券","保险","房地产开发","煤炭行业","有色金属","化学原料","钢铁行业","贵金属"]}
+    ];
+    const num=(value,fallback=0)=>Number.isFinite(Number(value))?Number(value):fallback;
+    const clamp=(value,min,max)=>Math.min(max,Math.max(min,value));
+    const esc=value=>String(value??"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+    const pctClass=value=>num(value)>0?"up":num(value)<0?"down":"flat";
+    const signed=value=>`${num(value)>0?"+":""}${num(value).toFixed(2)}%`;
+    const large=value=>{
+      const amount=num(value);
+      if(Math.abs(amount)>=1e8)return `${(amount/1e8).toFixed(2)}亿`;
+      if(Math.abs(amount)>=1e4)return `${(amount/1e4).toFixed(0)}万`;
+      return amount.toFixed(0);
+    };
+    async function getJson(url){
+      const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),9000);
+      try{
+        const response=await fetch(url,{cache:"no-store",signal:controller.signal});
+        if(!response.ok)throw new Error(`HTTP ${response.status}`);
+        const payload=await response.json();
+        if(payload.rc!==0||!payload.data)throw new Error("行情返回为空");
+        return payload.data;
+      }finally{clearTimeout(timer)}
+    }
+    function renderIndices(rows){
+      document.querySelector("#indexGrid").innerHTML=rows.map(item=>`
+        <article class="index-card">
+          <span>${esc(item.f14)} · ${esc(item.f12)}</span>
+          <strong>${num(item.f2).toFixed(2)}</strong>
+          <b class="${pctClass(item.f3)}">${signed(item.f3)} · ${large(item.f6)}</b>
+        </article>`).join("");
+    }
+    function stockScore(stock){
+      const amount=num(stock.f6),change=num(stock.f3),amplitude=num(stock.f7),turnover=num(stock.f8);
+      const pe=num(stock.f9,-1),pb=num(stock.f23,-1),trend60=num(stock.f24),flow=num(stock.f62);
+      const liquidity=clamp((Math.log10(Math.max(amount,1))-8)*10,0,22);
+      const dayTrend=clamp(11+change*1.8,0,20)-(Math.abs(change)>7?6:0);
+      const mediumTrend=clamp(10+trend60*.35,0,20)-(trend60>45?6:0);
+      const flowScore=clamp(7.5+(amount?flow/amount:0)*55,0,15);
+      const peScore=pe>0&&pe<80?clamp(9-Math.abs(pe-25)*.13,2,9):0;
+      const pbScore=pb>0&&pb<12?clamp(6-Math.max(0,pb-4)*.65,1,6):0;
+      const safety=clamp(15-amplitude*.72-Math.max(0,turnover-10)*.35,0,15);
+      return Math.round(clamp(liquidity+dayTrend+mediumTrend+flowScore+peScore+pbScore+safety,0,100));
+    }
+    function isEligible(stock){
+      const name=String(stock.f14||""),price=num(stock.f2),amount=num(stock.f6),change=Math.abs(num(stock.f3));
+      return price>0&&amount>=3e8&&!name.includes("ST")&&!name.includes("退")&&change<9.7&&num(stock.f7)<15&&num(stock.f8)<25;
+    }
+    function researchText(stock){
+      const positives=[],risks=[],amount=num(stock.f6),flow=num(stock.f62),trend60=num(stock.f24),pe=num(stock.f9,-1);
+      if(flow>0)positives.push("资金净流入");
+      if(trend60>0&&trend60<35)positives.push("60日趋势为正");
+      if(pe>0&&pe<40)positives.push("估值未处极端区");
+      if(amount>2e9)positives.push("成交活跃");
+      if(Math.abs(num(stock.f3))>5)risks.push("日内波动偏大");
+      if(trend60>35)risks.push("中期涨幅偏高");
+      if(pe<=0||pe>=80)risks.push("盈利与估值需重点核验");
+      if(flow<0)risks.push("资金净流出");
+      return `${positives.slice(0,2).join("、")||"量价证据一般"}；${risks.slice(0,2).join("、")||"仍需核验公告与财报"}。`;
+    }
+    function renderResearch(universe,indexRows){
+      const eligible=universe.filter(isEligible),excluded=universe.length-eligible.length;
+      const picks=researcherDefs.map(def=>{
+        const candidates=eligible.filter(stock=>def.keys.some(key=>String(stock.f100||"").includes(key)));
+        const best=candidates.map(stock=>({...stock,score:stockScore(stock)})).sort((a,b)=>b.score-a.score)[0];
+        return {...def,stock:best};
+      });
+      document.querySelector("#pickGrid").innerHTML=picks.map(pick=>{
+        const stock=pick.stock;
+        if(!stock)return `<article class="pick-card"><div class="pick-top"><span class="pick-agent">${esc(pick.agent)}</span><b class="pick-score">暂无候选</b></div><h3>${esc(pick.role)}</h3><p>当前高流动性样本中没有通过风险闸门的行业标的。</p></article>`;
+        return `<article class="pick-card">
+          <div class="pick-top"><span class="pick-agent">${esc(pick.agent)} · ${esc(pick.role)}</span><b class="pick-score">研究分 ${stock.score}</b></div>
+          <h3>${esc(stock.f14)}<small>${esc(stock.f12)} · ${esc(stock.f100||"行业待核验")}</small></h3>
+          <div class="pick-price"><strong>${num(stock.f2).toFixed(2)}</strong><b class="${pctClass(stock.f3)}">${signed(stock.f3)}</b></div>
+          <div class="evidence">
+            <div><span>成交额</span><strong>${large(stock.f6)}</strong></div>
+            <div><span>60日涨跌</span><strong class="${pctClass(stock.f24)}">${signed(stock.f24)}</strong></div>
+            <div><span>主力净额</span><strong class="${pctClass(stock.f62)}">${large(stock.f62)}</strong></div>
+          </div>
+          <p>${researchText(stock)}当前结论：列入研究观察，不构成买入指令。</p>
+        </article>`;
+      }).join("");
+      const avgIndex=indexRows.reduce((sum,item)=>sum+num(item.f3),0)/Math.max(indexRows.length,1);
+      const state=avgIndex>.7?"偏强":avgIndex<-.7?"偏弱":"震荡";
+      const passed=picks.filter(item=>item.stock).length;
+      document.querySelector("#researchBrief").innerHTML=`
+        <article class="brief-card"><span>AI-01 林策 · 投研总监</span><strong>${passed}位研究员提交观察对象</strong><p>先补齐财报、公告与行业证据，再决定是否进入重点研究。</p></article>
+        <article class="brief-card"><span>AI-02 周衡 · 策略总监</span><strong>主要指数环境：${state}</strong><p>五大指数平均涨跌${signed(avgIndex)}，市场环境已同步到三总监评分器。</p></article>
+        <article class="brief-card"><span>AI-17 顾岚 · 风控总监</span><strong>排除${excluded}个异常样本</strong><p>ST、退市标签、极端涨跌、低流动性或异常波动不进入观察池。</p></article>`;
+      const marketSelect=document.querySelector("#market");
+      marketSelect.value=avgIndex>.7?"0":avgIndex<-.7?"15":"5";
+      updateMeeting();
+    }
+    async function refreshMarket(){
+      const pulse=document.querySelector("#marketPulse"),status=document.querySelector("#marketStatus"),updated=document.querySelector("#marketUpdated"),button=document.querySelector("#refreshMarket");
+      pulse.className="pulse";status.textContent="正在刷新公开网络行情…";button.disabled=true;
+      const indexUrl=`${marketApi}/ulist.np/get?fltt=2&invt=2&fields=f12,f14,f2,f3,f4,f5,f6&secids=${indexSecids}`;
+      const universeUrl=`${marketApi}/clist/get?pn=1&pz=600&po=1&np=1&fltt=2&invt=2&fid=f6&fs=m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23&fields=${marketFields}`;
+      try{
+        const [indexData,universeData]=await Promise.all([getJson(indexUrl),getJson(universeUrl)]);
+        const indices=indexData.diff||[],universe=universeData.diff||[];
+        if(!indices.length||!universe.length)throw new Error("行情样本为空");
+        renderIndices(indices);renderResearch(universe,indices);
+        pulse.className="pulse ok";status.textContent=`行情已连接 · 扫描${universe.length}只高流动性样本`;
+        updated.textContent=`更新时间 ${new Intl.DateTimeFormat("zh-CN",{hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date())}`;
+      }catch(error){
+        pulse.className="pulse error";status.textContent="行情暂时不可用，请稍后重试";
+        updated.textContent=error?.name==="AbortError"?"连接超时":"网络数据源返回异常";
+      }finally{button.disabled=false}
+    }
+    document.querySelector("#refreshMarket").addEventListener("click",refreshMarket);
+    document.querySelector("#quoteForm").addEventListener("submit",async event=>{
+      event.preventDefault();
+      const code=document.querySelector("#quoteCode").value.trim(),result=document.querySelector("#quoteResult");
+      if(!/^\d{6}$/.test(code)){result.innerHTML="<h3>代码格式错误</h3><p>请输入6位A股代码。</p>";return}
+      result.innerHTML="<h3>正在读取行情…</h3><p>请稍候。</p>";
+      const market=/^[569]/.test(code)?1:0;
+      try{
+        const data=await getJson(`${marketApi}/stock/get?fltt=2&invt=2&secid=${market}.${code}&fields=${quoteFields}`);
+        const stock=data;
+        result.innerHTML=`<h3>${esc(stock.f58||code)} <small>${esc(stock.f57||code)}</small></h3>
+          <div class="pick-price"><strong>${num(stock.f43).toFixed(2)}</strong><b class="${pctClass(stock.f170)}">${signed(stock.f170)}</b></div>
+          <div class="quote-kpis"><span>成交额 ${large(stock.f48)}</span><span>换手 ${num(stock.f168).toFixed(2)}%</span><span>市盈率 ${num(stock.f162,-1)>0?num(stock.f162).toFixed(2):"待核验"}</span><span>总市值 ${large(stock.f116)}</span></div>
+          <p>行情快照仅供研究核验，正式数据以交易所和券商终端为准。</p>`;
+      }catch{result.innerHTML="<h3>查询失败</h3><p>代码可能不存在，或公开行情源暂时不可用。</p>"}
+    });
+    refreshMarket();
+    setInterval(()=>{if(!document.hidden)refreshMarket()},60000);
 
     const fmt=n=>new Intl.NumberFormat("zh-CN",{style:"currency",currency:"CNY",maximumFractionDigits:2}).format(n);
     let sim;try{sim=JSON.parse(localStorage.getItem("ashare-offline-sim"))||{cash:1000000,positions:[]}}catch{sim={cash:1000000,positions:[]}}
