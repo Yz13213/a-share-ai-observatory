@@ -181,7 +181,7 @@
       <div class="heading"><div><p class="eyebrow">三总监会商</p><h2>同一只股票，必须经受三种质疑</h2></div><p>调整六项评分，观察投研、策略和风控观点如何变化。评分是训练框架，不是买卖指令。</p></div>
       <div class="director-grid">
         <div class="panel score-panel">
-          <div class="field-row"><label>训练标的<input id="stockName" value="训练样例公司" /></label><label>市场状态<select id="market"><option value="0">强势</option><option value="5" selected>震荡</option><option value="15">弱势</option></select></label></div>
+          <div class="field-row"><label>训练标的<input id="stockName" value="训练样例公司" /></label><label>市场状态<select id="marketRegime"><option value="0">强势</option><option value="5" selected>震荡</option><option value="15">弱势</option></select></label></div>
           <div class="score-list" id="scoreList"></div>
           <label class="risk-line"><input id="hardRisk" type="checkbox" />发现重大违法、财务疑点、退市或流动性硬风险</label>
           <div class="result"><small>六维加权与市场修正</small><strong id="finalScore">—</strong><em id="outcome">—</em></div>
@@ -378,7 +378,7 @@
     agents.forEach(a=>{const tr=document.createElement("tr");tr.innerHTML=`<td><span class="agent-code">${a[0]}</span><strong>${a[1]}</strong><i class="ready">已配置</i></td><td>${a[2]}</td><td><strong>${a[3]}</strong></td><td>${a[4]}</td><td>${a[5]}</td><td>${a[6]}</td>`;roster.appendChild(tr)});
     function updateMeeting(){
       const values={};scoreDefs.forEach(([key])=>{values[key]=Number(document.querySelector("#"+key).value);document.querySelector("#"+key+"V").textContent=values[key]});
-      const penalty=Number(document.querySelector("#market").value),hard=document.querySelector("#hardRisk").checked;
+      const penalty=Number(document.querySelector("#marketRegime").value),hard=document.querySelector("#hardRisk").checked;
       const raw=scoreDefs.reduce((s,[key,,weight])=>s+values[key]*weight/100,0),final=hard?0:Math.max(0,raw-penalty);
       const research=Math.round((values.quality+values.value+values.earnings)/3);
       const strategy=Math.round((values.trend+values.catalyst+(100-penalty*4))/3);
@@ -390,7 +390,7 @@
       document.querySelector("#riskNote").textContent=hard?"发现硬风险，行使独立否决权；风险解除前不得进入模拟组合。":values.safety<55?"风险安全得分不足，不同意升级；先检查波动、流动性、财务与监管标签。":"暂未触发否决，但必须写清失效条件和最大可承受回撤。";
     }
     scoreDefs.forEach(([key])=>document.querySelector("#"+key).addEventListener("input",updateMeeting));
-    document.querySelector("#market").addEventListener("change",updateMeeting);document.querySelector("#hardRisk").addEventListener("change",updateMeeting);updateMeeting();
+    document.querySelector("#marketRegime").addEventListener("change",updateMeeting);document.querySelector("#hardRisk").addEventListener("change",updateMeeting);updateMeeting();
 
     const marketApi="https://push2delay.eastmoney.com/api/qt";
     const indexSecids="1.000001,0.399001,0.399006,1.000688,1.000300";
@@ -766,7 +766,7 @@
         <article class="brief-card"><span>AI-01 林策 · 投研总监</span><strong>${passed}位研究员提交观察对象</strong><p>先补齐财报、公告与行业证据，再决定是否进入重点研究。</p></article>
         <article class="brief-card"><span>AI-02 周衡 · 策略总监</span><strong>主要指数环境：${state}</strong><p>五大指数平均涨跌${signed(avgIndex)}，市场环境已同步到三总监评分器。</p></article>
         <article class="brief-card"><span>AI-17 顾岚 · 风控总监</span><strong>排除${excluded}个异常样本</strong><p>ST、退市标签、极端涨跌、低流动性或异常波动不进入观察池。</p></article>`;
-      const marketSelect=document.querySelector("#market");
+      const marketSelect=document.querySelector("#marketRegime");
       marketSelect.value=avgIndex>.7?"0":avgIndex<-.7?"15":"5";
       updateMeeting();
     }
