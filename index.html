@@ -122,16 +122,39 @@
     .evidence{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px}.evidence div{padding:8px;border-radius:9px;background:#f0ece2}.evidence span{display:block;color:var(--muted);font-size:7px}.evidence strong{display:block;margin-top:3px;font-size:9px}
     .pick-card p{margin:11px 0 0;color:var(--muted);font-size:9px;line-height:1.65}.pick-empty{grid-column:1/-1;padding:26px;text-align:center;color:var(--muted)}
     .method-note{max-width:1320px;margin:14px auto 28px;padding:13px 15px;border:1px dashed #cfc7b7;border-radius:12px;color:var(--muted);font-size:9px;line-height:1.7}
+    .quant-lab{max-width:1320px;margin:42px auto 28px;padding:24px;border-radius:22px;background:var(--dark);color:white;box-shadow:var(--shadow)}
+    .quant-toolbar{display:flex;align-items:center;gap:12px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .quant-toolbar div{flex:1}.quant-toolbar strong{display:block;font-family:Georgia,"Songti SC",serif;font-size:26px}.quant-toolbar small{display:block;margin-top:6px;color:#aeb8b2;font-size:9px;line-height:1.6}
+    .quant-toolbar .btn.secondary{border-color:rgba(255,255,255,.18);background:#26312e;color:white}
+    .quant-stat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:16px 0}
+    .quant-stat{padding:13px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:var(--dark2)}
+    .quant-stat span{display:block;color:#8f9c95;font-size:8px}.quant-stat strong{display:block;margin-top:5px;color:#efc18a;font-family:Georgia,serif;font-size:18px}
+    .committee-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0 16px}
+    .committee-note{padding:14px;border-radius:12px;background:#121816}.committee-note span{color:#dc907f;font-size:8px;font-weight:900}.committee-note strong{display:block;margin:6px 0;font-size:11px}.committee-note p{margin:0;color:#9da8a2;font-size:8px;line-height:1.6}
+    .daily-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .daily-card{padding:16px;border:1px solid rgba(255,255,255,.09);border-radius:14px;background:var(--dark2)}
+    .daily-top{display:flex;align-items:center;gap:9px}.daily-rank{width:30px;height:30px;display:grid;place-items:center;border-radius:9px;background:var(--red);font-family:Georgia,serif;font-weight:900}
+    .daily-title{flex:1}.daily-title strong{display:block;font-size:14px}.daily-title small{color:#96a29b;font-size:8px}.gate-pill{padding:5px 7px;border-radius:999px;background:rgba(29,118,94,.25);color:#83d3ba;font-size:8px;font-weight:900}
+    .daily-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:12px 0}.daily-metrics div{padding:8px;border-radius:8px;background:#151c1a}.daily-metrics span{display:block;color:#849189;font-size:7px}.daily-metrics strong{display:block;margin-top:3px;font-size:9px}
+    .debate{display:grid;grid-template-columns:1fr 1fr;gap:7px}.debate div{padding:9px;border-radius:9px;background:#151c1a}.debate span{display:block;color:#d39a74;font-size:7px;font-weight:900}.debate p{margin:4px 0 0;color:#aeb8b2;font-size:8px;line-height:1.55}
+    .invalidation{margin:9px 0 0;color:#efc18a;font-size:8px;line-height:1.55}.sim-fill{margin-top:10px;border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:7px 9px;background:transparent;color:#d7dfda;font-size:8px;font-weight:800;cursor:pointer}
+    .quant-empty{grid-column:1/-1;padding:30px;border:1px dashed rgba(255,255,255,.16);border-radius:14px;color:#aeb8b2;text-align:center;font-size:10px;line-height:1.7}
+    .accuracy-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}.accuracy-strip div{padding:13px;border-radius:11px;background:#121816}.accuracy-strip span{display:block;color:#8d9992;font-size:8px}.accuracy-strip strong{display:block;margin-top:5px;color:#efc18a;font-size:15px}
+    .backtest-lab{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}
+    .backtest-head{display:grid;grid-template-columns:minmax(250px,.62fr) minmax(0,1.38fr);gap:12px}
+    .backtest-form,.backtest-report{padding:15px;border-radius:13px;background:#121816}.backtest-form h3,.backtest-report h3{margin:0 0 10px;font-size:12px}.backtest-form label{display:block;margin-top:9px}.backtest-form input{border-color:rgba(255,255,255,.14)}
+    .backtest-form .btn{width:100%;margin-top:12px}.backtest-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.backtest-metrics div{padding:9px;border-radius:9px;background:#202a27}.backtest-metrics span{display:block;color:#87948d;font-size:7px}.backtest-metrics strong{display:block;margin-top:4px;color:#efc18a;font-size:11px}
+    .backtest-report canvas{width:100%;height:150px;margin-top:10px;border-radius:10px;background:#0f1513}.backtest-summary{margin:9px 0 0;color:#9da8a2;font-size:8px;line-height:1.65}
     .warning{max-width:1320px;margin:20px auto 0;padding:15px;border:1px solid #d8c9a8;border-radius:12px;background:#f3ead7;color:#6f624b;font-size:10px;line-height:1.7}
     footer{padding:30px clamp(18px,5vw,76px);border-top:1px solid var(--line);color:var(--muted);font-size:9px;line-height:1.7}
-    @media(max-width:980px){nav{display:none}.hero,.director-grid,.sim-grid,.market-tools{grid-template-columns:1fr}.learn-grid{grid-template-columns:repeat(2,1fr)}.source-grid{grid-template-columns:1fr}.workflow{grid-template-columns:repeat(2,1fr)}.index-grid{grid-template-columns:repeat(2,1fr)}.pick-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:640px){.hero{padding-top:48px}.offline{margin-left:auto}.hero-card{padding:17px}.heading{grid-template-columns:1fr;gap:12px}.learn-grid,.workflow,.account-top,.brief-grid,.pick-grid{grid-template-columns:1fr}.workflow div{border-right:0;border-bottom:1px solid rgba(255,255,255,.09)}.field-row{grid-template-columns:1fr}.score-line{grid-template-columns:94px 1fr 28px}.index-grid{grid-template-columns:1fr}.chart-frame{height:480px}.live-bar{align-items:flex-start;flex-wrap:wrap}.live-bar .btn{margin-left:0}}
+    @media(max-width:980px){nav{display:none}.hero,.director-grid,.sim-grid,.market-tools,.backtest-head{grid-template-columns:1fr}.learn-grid{grid-template-columns:repeat(2,1fr)}.source-grid{grid-template-columns:1fr}.workflow{grid-template-columns:repeat(2,1fr)}.index-grid{grid-template-columns:repeat(2,1fr)}.pick-grid,.daily-grid{grid-template-columns:repeat(2,1fr)}.quant-stat-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:640px){.hero{padding-top:48px}.offline{margin-left:auto}.hero-card{padding:17px}.heading{grid-template-columns:1fr;gap:12px}.learn-grid,.workflow,.account-top,.brief-grid,.pick-grid,.daily-grid,.committee-grid,.accuracy-strip{grid-template-columns:1fr}.workflow div{border-right:0;border-bottom:1px solid rgba(255,255,255,.09)}.field-row{grid-template-columns:1fr}.score-line{grid-template-columns:94px 1fr 28px}.index-grid,.quant-stat-grid{grid-template-columns:repeat(2,1fr)}.daily-metrics,.backtest-metrics{grid-template-columns:repeat(2,1fr)}.debate{grid-template-columns:1fr}.chart-frame{height:480px}.live-bar,.quant-toolbar{align-items:flex-start;flex-wrap:wrap}.live-bar .btn{margin-left:0}.quant-lab{padding:17px}}
   </style>
 </head>
 <body>
   <header class="topbar">
     <a class="brand" href="#top"><span class="mark">A</span><span>A股AI研究部<small>21位AI专员 · 公开联网学习版</small></span></a>
-    <nav><a href="#meeting">三总监会商</a><a href="#team">AI部门</a><a href="#market">联网行情</a><a href="#learn">K线课堂</a><a href="#sim">模拟账户</a><a href="#sources">官方来源</a></nav>
+    <nav><a href="#meeting">三总监会商</a><a href="#team">AI部门</a><a href="#market">联网行情</a><a href="#quant">量化V1</a><a href="#learn">K线课堂</a><a href="#sim">模拟账户</a><a href="#sources">官方来源</a></nav>
     <span class="offline">公开联网版</span>
   </header>
 
@@ -203,6 +226,49 @@
       </div>
       <div class="pick-grid" id="pickGrid"><div class="pick-empty">正在扫描高流动性A股样本…</div></div>
       <div class="method-note">研究观察池不是买入清单：评分只使用公开行情快照和有限估值字段，无法替代财报核验、公告审查、行业调研和个人风险评估。候选股随行情变化，刷新后可能更换。</div>
+      <div class="quant-lab" id="quant">
+        <div class="quant-toolbar">
+          <div><p class="eyebrow">量化V1 · 每日部门会商</p><strong>目标10只，未通过准确率闸门不凑数</strong><small id="quantStatus">等待行情样本，随后进行历史验证与三总监复核。</small></div>
+          <button class="btn secondary" id="runQuant" type="button">重新会商</button>
+        </div>
+        <div class="quant-stat-grid" id="quantStats">
+          <div class="quant-stat"><span>股票池</span><strong>等待</strong></div>
+          <div class="quant-stat"><span>历史闸门</span><strong>≥55%</strong></div>
+          <div class="quant-stat"><span>验证周期</span><strong>5日</strong></div>
+          <div class="quant-stat"><span>行业上限</span><strong>2只</strong></div>
+          <div class="quant-stat"><span>调仓方式</span><strong>仅模拟</strong></div>
+        </div>
+        <div class="committee-grid" id="quantCommittee">
+          <article class="committee-note"><span>AI-01 林策 · 投研总监</span><strong>等待研究员提名</strong><p>验证样本数与历史命中率，不达门槛不提交。</p></article>
+          <article class="committee-note"><span>AI-02 周衡 · 策略总监</span><strong>等待指数环境</strong><p>弱势市场提高门槛，控制候选数量与行业集中度。</p></article>
+          <article class="committee-note"><span>AI-17 顾岚 · 风控总监</span><strong>风险否决待命</strong><p>异常波动、流动性不足与过大历史回撤直接剔除。</p></article>
+        </div>
+        <div class="daily-grid" id="dailyPicks"><div class="quant-empty">首次计算需要读取候选股历史日线，请稍候。</div></div>
+        <div class="accuracy-strip" id="forwardAccuracy">
+          <div><span>已到期前瞻样本</span><strong>0</strong></div>
+          <div><span>未来实测命中率</span><strong>等待5个交易日</strong></div>
+          <div><span>未来实测平均收益</span><strong>—</strong></div>
+        </div>
+        <div class="method-note" style="margin:0;border-color:rgba(255,255,255,.18);color:#aeb8b2">“历史命中率”是固定规则在较晚时间段的模拟验证，不代表未来准确率；“未来实测”从名单生成后的下一交易日开盘起算，持有5个交易日并扣除0.12%模拟成本。网站不会自动下单，也不会承诺收益。</div>
+        <div class="backtest-lab">
+          <div class="backtest-head">
+            <form class="backtest-form" id="backtestForm">
+              <h3>单股历史验证实验室</h3>
+              <label>6位A股代码<input id="backtestCode" inputmode="numeric" maxlength="6" value="600519" required /></label>
+              <button class="btn" type="submit">运行5日规则回测</button>
+              <p class="message" id="backtestMessage">信号在收盘后生成，下一交易日开盘模拟进入。</p>
+            </form>
+            <div class="backtest-report">
+              <h3 id="backtestTitle">等待回测</h3>
+              <div class="backtest-metrics" id="backtestMetrics">
+                <div><span>验证样本</span><strong>—</strong></div><div><span>历史命中率</span><strong>—</strong></div><div><span>平均5日收益</span><strong>—</strong></div><div><span>最大回撤</span><strong>—</strong></div>
+              </div>
+              <canvas id="backtestChart" width="900" height="220" aria-label="回测权益曲线"></canvas>
+              <p class="backtest-summary" id="backtestSummary">回测会自动避开训练区间，并计入模拟交易成本；结果仅用于学习模型稳定性。</p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="heading"><div><p class="eyebrow">历史K线参考</p><h2>免费图表用于看结构，不用于核对实时成交</h2></div><p>TradingView 免费沪深行情通常延迟15分钟。实时快照看上方行情卡，K线形态与周期结构看下方图表。</p></div>
       <div class="chart-shell">
         <div class="chart-frame">
@@ -267,8 +333,9 @@
         <a class="source-card" href="https://www.bse.cn/" target="_blank" rel="noreferrer"><span>北交所</span><h3>北京证券交易所</h3><p>公司公告与监管信息</p></a>
         <a class="source-card" href="https://www.cninfo.com.cn/" target="_blank" rel="noreferrer"><span>披露</span><h3>巨潮资讯网</h3><p>法定披露与财务报告</p></a>
         <a class="source-card" href="https://data.stats.gov.cn/" target="_blank" rel="noreferrer"><span>宏观</span><h3>国家统计局</h3><p>经济数据与发布日程</p></a>
+        <a class="source-card" href="https://www.csrc.gov.cn/shenzhen/c105615/c7638512/content.shtml" target="_blank" rel="noreferrer"><span>防骗</span><h3>警惕AI量化荐股骗局</h3><p>证监局关于资质、夸大胜率与收费荐股的风险提示</p></a>
       </div>
-      <div class="warning">重要提示：本工具用于学习、研究与模拟训练，不构成证券投资咨询或具体买卖建议。AI可能出错，历史策略和回测结果不能保证未来收益。</div>
+      <div class="warning">重要提示：本页仅展示固定规则自动筛选的模拟研究样本，不提供个性化投资建议、不收取荐股费用、不设目标价、不承诺收益。AI可能出错，历史命中率和回测结果不能保证未来收益，请勿直接照单实盘操作。</div>
     </section>
   </main>
   <footer>© A股AI研究部公开联网学习版。模拟数据仅保存在当前浏览器；清除站点数据会同时清除模拟账户。</footer>
@@ -325,10 +392,13 @@
     scoreDefs.forEach(([key])=>document.querySelector("#"+key).addEventListener("input",updateMeeting));
     document.querySelector("#market").addEventListener("change",updateMeeting);document.querySelector("#hardRisk").addEventListener("change",updateMeeting);updateMeeting();
 
-    const marketApi="https://push2.eastmoney.com/api/qt";
+    const marketApi="https://push2delay.eastmoney.com/api/qt";
     const indexSecids="1.000001,0.399001,0.399006,1.000688,1.000300";
     const marketFields="f12,f13,f14,f2,f3,f4,f5,f6,f7,f8,f9,f10,f15,f16,f17,f18,f20,f21,f23,f24,f25,f62,f100";
     const quoteFields="f57,f58,f43,f44,f45,f46,f47,f48,f50,f60,f116,f117,f162,f167,f168,f169,f170";
+    const historyApi="https://push2his.eastmoney.com/api/qt/stock/kline/get";
+    const quantStoreKey="ashare-quant-daily-v1";
+    let latestUniverse=[],latestIndices=[],quantBusy=false;
     const researcherDefs=[
       {agent:"AI-05 硅瞳",role:"TMT研究员",keys:["半导体","软件开发","计算机设备","通信设备","互联网服务","元件","光学光电子","消费电子"]},
       {agent:"AI-06 机衡",role:"高端制造研究员",keys:["自动化设备","通用设备","专用设备","工程机械","航天航空","船舶制造","轨交设备"]},
@@ -349,14 +419,21 @@
       return amount.toFixed(0);
     };
     async function getJson(url){
-      const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),9000);
-      try{
-        const response=await fetch(url,{cache:"no-store",signal:controller.signal});
-        if(!response.ok)throw new Error(`HTTP ${response.status}`);
-        const payload=await response.json();
-        if(payload.rc!==0||!payload.data)throw new Error("行情返回为空");
-        return payload.data;
-      }finally{clearTimeout(timer)}
+      let lastError;
+      for(let attempt=0;attempt<2;attempt++){
+        const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),15000);
+        try{
+          const response=await fetch(url,{cache:"no-store",signal:controller.signal});
+          if(!response.ok)throw new Error(`HTTP ${response.status}`);
+          const payload=await response.json();
+          if(payload.rc!==0||!payload.data)throw new Error("行情返回为空");
+          return payload.data;
+        }catch(error){
+          lastError=error;
+          if(attempt===0)await new Promise(resolve=>setTimeout(resolve,450));
+        }finally{clearTimeout(timer)}
+      }
+      throw lastError||new Error("公开数据源连接失败");
     }
     function renderIndices(rows){
       document.querySelector("#indexGrid").innerHTML=rows.map(item=>`
@@ -393,6 +470,272 @@
       if(pe<=0||pe>=80)risks.push("盈利与估值需重点核验");
       if(flow<0)risks.push("资金净流出");
       return `${positives.slice(0,2).join("、")||"量价证据一般"}；${risks.slice(0,2).join("、")||"仍需核验公告与财报"}。`;
+    }
+    function shortTermScore(stock){
+      const amount=num(stock.f6),change=num(stock.f3),amplitude=num(stock.f7),turnover=num(stock.f8);
+      const volumeRatio=num(stock.f10),trend60=num(stock.f24),flow=num(stock.f62);
+      const liquidity=clamp((Math.log10(Math.max(amount,1))-8)*11,0,22);
+      const dayTrend=clamp(10+change*2,0,18)+(Math.abs(change)<6?5:0);
+      const volume=clamp(7+volumeRatio*4,0,15);
+      const medium=clamp(9+trend60*.22,0,18)-(trend60>45?6:0);
+      const money=clamp(8+(amount?flow/amount:0)*45,0,14);
+      const risk=clamp(13-amplitude*.55-Math.max(0,turnover-12)*.3,0,13);
+      return Math.round(clamp(liquidity+dayTrend+volume+medium+money+risk,0,100));
+    }
+    function shanghaiDay(){
+      const parts=new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Shanghai",year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date());
+      const get=type=>parts.find(part=>part.type===type)?.value;
+      return `${get("year")}-${get("month")}-${get("day")}`;
+    }
+    function findResearcher(stock){
+      const industry=String(stock.f100||"");
+      return researcherDefs.find(def=>def.keys.some(key=>industry.includes(key)))||null;
+    }
+    function readQuantStore(){
+      try{
+        const parsed=JSON.parse(localStorage.getItem(quantStoreKey));
+        return parsed&&Array.isArray(parsed.records)?parsed:{records:[]};
+      }catch{return {records:[]}}
+    }
+    function saveQuantStore(store){
+      store.records=(store.records||[]).slice(-30);
+      localStorage.setItem(quantStoreKey,JSON.stringify(store));
+    }
+    async function fetchHistory(code,market,lmt=320){
+      const symbol=`${market===1?"sh":"sz"}${code}`;
+      let name=code,bars=[];
+      try{
+        const response=await fetch(`https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=${symbol},day,,,${lmt},qfq`,{cache:"no-store"});
+        if(!response.ok)throw new Error(`HTTP ${response.status}`);
+        const payload=await response.json(),data=payload.data?.[symbol];
+        if(!data)throw new Error("历史行情返回为空");
+        name=data.qt?.[symbol]?.[1]||code;
+        bars=(data.qfqday||data.day||[]).map(item=>({date:item[0],open:num(item[1]),close:num(item[2]),high:num(item[3]),low:num(item[4]),volume:num(item[5]),amount:0,change:0,turnover:0}));
+        bars.forEach((bar,index)=>{bar.change=index&&bars[index-1].close?bar.close/bars[index-1].close*100-100:0});
+      }catch{
+        const url=`${historyApi}?secid=${market}.${code}&klt=101&fqt=1&lmt=${lmt}&end=20500101&fields1=f1,f2,f3,f4,f5,f6&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61`;
+        const data=await getJson(url);name=data.name||code;
+        bars=(data.klines||[]).map(line=>{
+          const item=line.split(",");
+          return {date:item[0],open:num(item[1]),close:num(item[2]),high:num(item[3]),low:num(item[4]),volume:num(item[5]),amount:num(item[6]),change:num(item[8]),turnover:num(item[10])};
+        });
+      }
+      bars=bars.filter(bar=>bar.open>0&&bar.close>0);
+      const hour=Number(new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Shanghai",hour:"2-digit",hour12:false}).format(new Date()));
+      if(bars.at(-1)?.date===shanghaiDay()&&hour<16)bars.pop();
+      return {name,bars};
+    }
+    const average=values=>values.length?values.reduce((sum,value)=>sum+value,0)/values.length:0;
+    function evaluateHistory(bars){
+      if(bars.length<180)return {samples:0,hitRate:0,avgReturn:0,maxDrawdown:0,currentTrend:false,ma20:0,ma60:0,returns:[],strategy:"样本不足"};
+      const split=Math.max(100,Math.floor(bars.length*.58));
+      const strategies=[
+        {key:"trend",label:"趋势延续",signal:ctx=>ctx.close>ctx.ma20&&ctx.ma20>ctx.ma60&&ctx.momentum20>-.02&&ctx.momentum20<.35&&Math.abs(ctx.change)<8},
+        {key:"pullback",label:"上升回踩",signal:ctx=>ctx.ma20>ctx.ma60&&ctx.close>ctx.ma60&&ctx.close>=ctx.ma20*.96&&ctx.close<=ctx.ma20*1.025&&ctx.momentum20>-.10&&ctx.momentum20<.25},
+        {key:"steady",label:"低波趋势",signal:ctx=>ctx.ma20>ctx.ma60&&ctx.close>ctx.ma60&&ctx.momentum20>0&&ctx.momentum20<.20&&Math.abs(ctx.change)<2.5},
+        {key:"breakout",label:"温和突破",signal:ctx=>ctx.ma20>ctx.ma60&&ctx.close>=ctx.prev20High*.995&&ctx.momentum20>0&&ctx.momentum20<.45&&ctx.volumeRatio>.8}
+      ];
+      const contextAt=i=>{
+        const ma20=average(bars.slice(i-19,i+1).map(bar=>bar.close)),ma60=average(bars.slice(i-59,i+1).map(bar=>bar.close));
+        const avgVolume=average(bars.slice(i-19,i+1).map(bar=>bar.volume));
+        return {close:bars[i].close,change:bars[i].change,ma20,ma60,momentum20:bars[i].close/bars[i-20].close-1,prev20High:Math.max(...bars.slice(i-20,i).map(bar=>bar.high)),volumeRatio:avgVolume?bars[i].volume/avgVolume:1};
+      };
+      const collect=(strategy,start,end)=>{
+        const results=[];
+        for(let i=Math.max(60,start);i<end-5;i++){
+          if(strategy.signal(contextAt(i))){
+            results.push({date:bars[i].date,value:bars[i+5].close/bars[i+1].open-1-.0012});
+            i+=4;
+          }
+        }
+        return results;
+      };
+      const summarize=returns=>{
+        const hitRate=returns.length?returns.filter(item=>item.value>0).length/returns.length:0,avgReturn=average(returns.map(item=>item.value));
+        let equity=1,peak=1,maxDrawdown=0;
+        returns.forEach(item=>{equity*=1+item.value;peak=Math.max(peak,equity);maxDrawdown=Math.min(maxDrawdown,equity/peak-1)});
+        return {hitRate,avgReturn,maxDrawdown};
+      };
+      const trained=strategies.map(strategy=>{
+        const returns=collect(strategy,60,split),metrics=summarize(returns);
+        const quality=returns.length>=4?metrics.hitRate*100+metrics.avgReturn*450-Math.abs(metrics.maxDrawdown)*35+Math.min(returns.length,12)*.25:-999;
+        return {strategy,returns,metrics,quality};
+      }).sort((a,b)=>b.quality-a.quality)[0];
+      const selectedStrategy=trained?.strategy||strategies[0],returns=collect(selectedStrategy,split,bars.length),validation=summarize(returns);
+      const hitRate=validation.hitRate,avgReturn=validation.avgReturn,maxDrawdown=validation.maxDrawdown;
+      let equity=1;
+      const curve=[1];
+      returns.forEach(item=>{equity*=1+item.value;curve.push(equity)});
+      const last=bars.length-1;
+      const ma20=average(bars.slice(last-19,last+1).map(bar=>bar.close));
+      const ma60=average(bars.slice(last-59,last+1).map(bar=>bar.close));
+      return {samples:returns.length,hitRate,avgReturn,maxDrawdown,currentTrend:selectedStrategy.signal(contextAt(last)),ma20,ma60,returns,curve,lastClose:bars[last].close,strategy:selectedStrategy.label,trainSamples:trained?.returns?.length||0,trainHitRate:trained?.metrics?.hitRate||0};
+    }
+    async function mapLimit(items,limit,worker){
+      const results=new Array(items.length);
+      let cursor=0;
+      async function run(){
+        while(cursor<items.length){
+          const index=cursor++;
+          try{results[index]=await worker(items[index],index)}catch{results[index]=null}
+        }
+      }
+      await Promise.all(Array.from({length:Math.min(limit,items.length)},run));
+      return results;
+    }
+    function quantReason(stock){
+      const items=[];
+      if(num(stock.f62)>0)items.push("资金净流入");
+      if(num(stock.f10)>=1.1)items.push(`量比${num(stock.f10).toFixed(2)}`);
+      if(num(stock.f24)>0&&num(stock.f24)<35)items.push("60日趋势为正且未过热");
+      if(num(stock.f6)>=2e9)items.push("成交活跃");
+      return items.slice(0,2).join("、")||"流动性与趋势结构相对占优";
+    }
+    function quantCounter(stock,validation){
+      const items=[];
+      if(num(stock.f62)<0)items.push("资金当日净流出");
+      if(num(stock.f24)>35)items.push("中期涨幅偏高");
+      if(num(stock.f9,-1)<=0||num(stock.f9)>80)items.push("估值或盈利需核验");
+      if(validation.maxDrawdown<-.12)items.push("历史回撤偏大");
+      return items.slice(0,2).join("、")||"公告与财报尚未完成逐项核验";
+    }
+    function formatPct(value){return `${value>0?"+":""}${(value*100).toFixed(2)}%`}
+    function renderDailyQuant(record,fromCache=false){
+      const picks=record.picks||[],target=10;
+      document.querySelector("#quantStatus").textContent=`${record.date} 会商${fromCache?"已从本机记录恢复":"已完成"}：${picks.length}/${target}只通过，历史门槛${Math.round(record.threshold*100)}%。`;
+      document.querySelector("#quantStats").innerHTML=`
+        <div class="quant-stat"><span>扫描股票池</span><strong>${record.universeCount}只</strong></div>
+        <div class="quant-stat"><span>进入历史验证</span><strong>${record.testedCount}只</strong></div>
+        <div class="quant-stat"><span>历史闸门</span><strong>≥${Math.round(record.threshold*100)}%</strong></div>
+        <div class="quant-stat"><span>最终通过</span><strong>${picks.length}/10</strong></div>
+        <div class="quant-stat"><span>持有规则</span><strong>5日模拟</strong></div>`;
+      const marketState=record.avgIndex>.7?"偏强":record.avgIndex<-.7?"偏弱":"震荡";
+      document.querySelector("#quantCommittee").innerHTML=`
+        <article class="committee-note"><span>AI-01 林策 · 投研总监</span><strong>${record.testedCount}只完成样本外验证</strong><p>固定规则验证样本不足6次或平均收益不为正，直接退回。</p></article>
+        <article class="committee-note"><span>AI-02 周衡 · 策略总监</span><strong>市场${marketState} · 门槛${Math.round(record.threshold*100)}%</strong><p>五大指数平均${signed(record.avgIndex)}；弱势环境下当前趋势会降低综合研究分。</p></article>
+        <article class="committee-note"><span>AI-17 顾岚 · 风控总监</span><strong>剔除${record.excludedCount}只风险样本</strong><p>单行业最多3只；历史最大回撤低于-20%或异常波动时直接否决。</p></article>`;
+      document.querySelector("#dailyPicks").innerHTML=picks.length?picks.map((pick,index)=>`
+        <article class="daily-card">
+          <div class="daily-top"><span class="daily-rank">${index+1}</span><div class="daily-title"><strong>${esc(pick.name)} · ${esc(pick.code)}</strong><small>${esc(pick.industry)}｜${esc(pick.researcher)}｜${esc(pick.strategy)}</small></div><span class="gate-pill">3/3通过</span></div>
+          <div class="daily-metrics">
+            <div><span>综合研究分</span><strong>${pick.finalScore}</strong></div>
+            <div><span>历史命中率</span><strong>${(pick.hitRate*100).toFixed(1)}%</strong></div>
+            <div><span>平均5日收益</span><strong class="${pick.avgReturn>=0?"up":"down"}">${formatPct(pick.avgReturn)}</strong></div>
+            <div><span>验证样本/回撤</span><strong>${pick.samples} / ${(pick.maxDrawdown*100).toFixed(1)}%</strong></div>
+          </div>
+          <div class="debate"><div><span>研究员支持理由</span><p>${esc(pick.reason)}</p></div><div><span>总监反方意见</span><p>${esc(pick.counter)}</p></div></div>
+          <p class="invalidation">失效条件：收盘跌破20日均线${pick.ma20.toFixed(2)}，或出现重大公告风险时移出观察。</p>
+          <button class="sim-fill" type="button" data-code="${esc(pick.code)}" data-name="${esc(pick.name)}" data-price="${pick.price}">带入模拟成交单</button>
+        </article>`).join(""):`<div class="quant-empty">今日没有股票同时通过历史命中率、正期望、当前趋势与风险回撤四道闸门。系统不会为了凑满10只降低标准。</div>`;
+    }
+    function renderForwardAccuracy(store){
+      const outcomes=(store.records||[]).flatMap(record=>(record.picks||[]).map(pick=>pick.forwardReturn)).filter(Number.isFinite);
+      const hit=outcomes.length?outcomes.filter(value=>value>0).length/outcomes.length:0;
+      const avg=average(outcomes);
+      document.querySelector("#forwardAccuracy").innerHTML=`
+        <div><span>已到期前瞻样本</span><strong>${outcomes.length}</strong></div>
+        <div><span>未来实测命中率</span><strong>${outcomes.length?(hit*100).toFixed(1)+"%":"等待5个交易日"}</strong></div>
+        <div><span>未来实测平均收益</span><strong>${outcomes.length?formatPct(avg):"—"}</strong></div>`;
+    }
+    async function updateForwardLedger(store){
+      const pending=[];
+      (store.records||[]).forEach(record=>(record.picks||[]).forEach(pick=>{if(!Number.isFinite(pick.forwardReturn)&&record.date<shanghaiDay())pending.push({record,pick})}));
+      const targets=pending.slice(0,20);
+      await mapLimit(targets,4,async target=>{
+        const history=await fetchHistory(target.pick.code,target.pick.market,180);
+        const entryIndex=history.bars.findIndex(bar=>bar.date>target.record.date);
+        const exitIndex=entryIndex+4;
+        if(entryIndex>=0&&history.bars[exitIndex]){
+          target.pick.forwardReturn=history.bars[exitIndex].close/history.bars[entryIndex].open-1-.0012;
+          target.pick.forwardEntry=history.bars[entryIndex].date;
+          target.pick.forwardExit=history.bars[exitIndex].date;
+        }
+      });
+      saveQuantStore(store);renderForwardAccuracy(store);
+    }
+    async function generateDailyQuant(universe,indexRows,{force=false}={}){
+      if(quantBusy)return;
+      const status=document.querySelector("#quantStatus"),today=shanghaiDay(),store=readQuantStore();
+      const cached=store.records.find(record=>record.date===today);
+      if(cached&&!force){
+        renderDailyQuant(cached,true);renderForwardAccuracy(store);updateForwardLedger(store);
+        return;
+      }
+      quantBusy=true;document.querySelector("#runQuant").disabled=true;
+      const avgIndex=indexRows.reduce((sum,item)=>sum+num(item.f3),0)/Math.max(indexRows.length,1);
+      const threshold=.55;
+      const eligible=universe.filter(stock=>isEligible(stock)&&findResearcher(stock));
+      const candidates=eligible.map(stock=>({...stock,liveScore:shortTermScore(stock)})).sort((a,b)=>b.liveScore-a.liveScore).slice(0,240);
+      status.textContent=`研究员已提名${candidates.length}只，正在分批读取历史日线并执行5日验证…`;
+      try{
+        const validated=[];
+        for(let offset=0;offset<candidates.length;offset+=4){
+          const batch=(await mapLimit(candidates.slice(offset,offset+4),4,async stock=>{
+            try{
+              const history=await fetchHistory(stock.f12,stock.f13);
+              const validation=evaluateHistory(history.bars);
+              const calibration=validation.hitRate*40+clamp(validation.avgReturn*500,0,15)+clamp((validation.maxDrawdown+.2)*50,0,10)+(validation.currentTrend?10:0);
+              return {...stock,validation,finalScore:Math.round(clamp(stock.liveScore*.55+calibration*.45,0,100))};
+            }catch{return null}
+          })).filter(Boolean);
+          validated.push(...batch);
+          const provisional=validated.filter(item=>item.validation.samples>=6&&item.validation.hitRate>=threshold&&item.validation.avgReturn>0&&item.validation.maxDrawdown>-.2&&item.finalScore>=55);
+          const sectors={},available=provisional.filter(item=>{const sector=String(item.f100||"行业待核验");if((sectors[sector]||0)>=3)return false;sectors[sector]=(sectors[sector]||0)+1;return true}).length;
+          status.textContent=`已验证${validated.length}只，当前${Math.min(available,10)}/10只通过；${available<10?"继续寻找下一批候选…":"进入三总监终审…"}`;
+          if(available>=10)break;
+        }
+        if(validated.length<Math.min(8,candidates.length))throw new Error("历史接口返回的有效样本不足");
+        const passed=validated.filter(item=>item.validation.samples>=6&&item.validation.hitRate>=threshold&&item.validation.avgReturn>0&&item.validation.maxDrawdown>-.2&&item.finalScore>=55).sort((a,b)=>b.finalScore-a.finalScore);
+        const sectorCount={},selected=[];
+        for(const item of passed){
+          const sector=String(item.f100||"行业待核验");
+          if((sectorCount[sector]||0)>=3)continue;
+          sectorCount[sector]=(sectorCount[sector]||0)+1;
+          const researcher=findResearcher(item);
+          selected.push({
+            code:String(item.f12),market:num(item.f13),name:String(item.f14),industry:sector,researcher:`${researcher.agent} · ${researcher.role}`,
+            price:num(item.f2),change:num(item.f3),finalScore:item.finalScore,hitRate:item.validation.hitRate,avgReturn:item.validation.avgReturn,
+            maxDrawdown:item.validation.maxDrawdown,samples:item.validation.samples,ma20:item.validation.ma20,strategy:item.validation.strategy,reason:quantReason(item),counter:quantCounter(item,item.validation)
+          });
+          if(selected.length===10)break;
+        }
+        const record={date:today,generatedAt:new Date().toISOString(),avgIndex,threshold,universeCount:universe.length,testedCount:validated.length,excludedCount:universe.length-eligible.length,picks:selected};
+        store.records=store.records.filter(item=>item.date!==today);store.records.push(record);saveQuantStore(store);
+        renderDailyQuant(record);renderForwardAccuracy(store);updateForwardLedger(store);
+      }catch(error){
+        status.textContent="历史验证暂时未完成，公开数据源可能限流；稍后可点击“重新会商”。";
+        document.querySelector("#dailyPicks").innerHTML=`<div class="quant-empty">量化计算未生成结果。${esc(error?.message||"网络数据异常")}</div>`;
+      }finally{quantBusy=false;document.querySelector("#runQuant").disabled=false}
+    }
+    function drawBacktest(curve){
+      const canvas=document.querySelector("#backtestChart"),ctx=canvas.getContext("2d");
+      const width=canvas.width,height=canvas.height,pad=24;
+      ctx.clearRect(0,0,width,height);ctx.fillStyle="#0f1513";ctx.fillRect(0,0,width,height);
+      ctx.strokeStyle="rgba(255,255,255,.08)";ctx.lineWidth=1;
+      for(let i=1;i<5;i++){const y=pad+(height-pad*2)*i/5;ctx.beginPath();ctx.moveTo(pad,y);ctx.lineTo(width-pad,y);ctx.stroke()}
+      if(!curve||curve.length<2)return;
+      const min=Math.min(...curve),max=Math.max(...curve),range=Math.max(max-min,.01);
+      ctx.strokeStyle="#efc18a";ctx.lineWidth=3;ctx.beginPath();
+      curve.forEach((value,index)=>{const x=pad+(width-pad*2)*index/(curve.length-1),y=height-pad-(value-min)/range*(height-pad*2);index?ctx.lineTo(x,y):ctx.moveTo(x,y)});
+      ctx.stroke();
+    }
+    async function runBacktest(code){
+      const message=document.querySelector("#backtestMessage"),title=document.querySelector("#backtestTitle");
+      message.textContent="正在读取历史日线并执行独立时间段验证…";
+      const market=/^[569]/.test(code)?1:0;
+      try{
+        const history=await fetchHistory(code,market),result=evaluateHistory(history.bars);
+        title.textContent=`${history.name} ${code} · ${result.strategy}5日验证`;
+        document.querySelector("#backtestMetrics").innerHTML=`
+          <div><span>验证样本</span><strong>${result.samples}</strong></div>
+          <div><span>历史命中率</span><strong>${(result.hitRate*100).toFixed(1)}%</strong></div>
+          <div><span>平均5日收益</span><strong>${formatPct(result.avgReturn)}</strong></div>
+          <div><span>最大回撤</span><strong>${(result.maxDrawdown*100).toFixed(1)}%</strong></div>`;
+        const pass=result.samples>=6&&result.hitRate>=.55&&result.avgReturn>0&&result.maxDrawdown>-.2;
+        document.querySelector("#backtestSummary").textContent=`结论：${pass?"达到历史研究门槛":"未达到历史研究门槛"}。系统只在较早58%数据中选择“${result.strategy}”规则，较晚42%数据独立验证，共${result.samples}次不重叠信号；历史结果不保证未来表现。`;
+        message.textContent="回测完成。信号按下一交易日开盘进入、第五个交易日收盘退出，并扣除0.12%模拟成本。";
+        drawBacktest(result.curve);
+      }catch(error){message.textContent=`回测失败：${error?.message||"历史数据暂时不可用"}`}
     }
     function renderResearch(universe,indexRows){
       const eligible=universe.filter(isEligible),excluded=universe.length-eligible.length;
@@ -431,20 +774,43 @@
       const pulse=document.querySelector("#marketPulse"),status=document.querySelector("#marketStatus"),updated=document.querySelector("#marketUpdated"),button=document.querySelector("#refreshMarket");
       pulse.className="pulse";status.textContent="正在刷新公开网络行情…";button.disabled=true;
       const indexUrl=`${marketApi}/ulist.np/get?fltt=2&invt=2&fields=f12,f14,f2,f3,f4,f5,f6&secids=${indexSecids}`;
-      const universeUrl=`${marketApi}/clist/get?pn=1&pz=600&po=1&np=1&fltt=2&invt=2&fid=f6&fs=m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23&fields=${marketFields}`;
+      const universeUrls=[1,2,3,4].map(page=>`${marketApi}/clist/get?pn=${page}&pz=100&po=1&np=1&fltt=2&invt=2&fid=f6&fs=m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23&fields=${marketFields}`);
       try{
-        const [indexData,universeData]=await Promise.all([getJson(indexUrl),getJson(universeUrl)]);
-        const indices=indexData.diff||[],universe=universeData.diff||[];
+        const [indexData,universeResults]=await Promise.all([getJson(indexUrl),Promise.allSettled(universeUrls.map(getJson))]);
+        const universePages=universeResults.filter(result=>result.status==="fulfilled").map(result=>result.value);
+        const indices=indexData.diff||[],allStocks=universePages.flatMap(page=>page.diff||[]);
+        const universe=[...new Map(allStocks.map(stock=>[`${stock.f13}.${stock.f12}`,stock])).values()];
         if(!indices.length||!universe.length)throw new Error("行情样本为空");
         renderIndices(indices);renderResearch(universe,indices);
+        latestUniverse=universe;latestIndices=indices;
         pulse.className="pulse ok";status.textContent=`行情已连接 · 扫描${universe.length}只高流动性样本`;
         updated.textContent=`更新时间 ${new Intl.DateTimeFormat("zh-CN",{hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date())}`;
+        generateDailyQuant(universe,indices);
       }catch(error){
         pulse.className="pulse error";status.textContent="行情暂时不可用，请稍后重试";
         updated.textContent=error?.name==="AbortError"?"连接超时":"网络数据源返回异常";
       }finally{button.disabled=false}
     }
     document.querySelector("#refreshMarket").addEventListener("click",refreshMarket);
+    document.querySelector("#runQuant").addEventListener("click",()=>{
+      if(!latestUniverse.length){document.querySelector("#quantStatus").textContent="请先等待上方行情连接完成。";return}
+      generateDailyQuant(latestUniverse,latestIndices,{force:true});
+    });
+    document.querySelector("#backtestForm").addEventListener("submit",event=>{
+      event.preventDefault();
+      const code=document.querySelector("#backtestCode").value.trim();
+      if(!/^\d{6}$/.test(code)){document.querySelector("#backtestMessage").textContent="请输入6位A股代码。";return}
+      runBacktest(code);
+    });
+    document.addEventListener("click",event=>{
+      const button=event.target.closest(".sim-fill");
+      if(!button)return;
+      document.querySelector("#code").value=button.dataset.code;
+      document.querySelector("#name").value=button.dataset.name;
+      document.querySelector("#price").value=button.dataset.price;
+      document.querySelector("#message").textContent="已从量化观察名单带入，仅供模拟练习；请自行决定是否记录。";
+      document.querySelector("#sim").scrollIntoView({behavior:"smooth"});
+    });
     document.querySelector("#quoteForm").addEventListener("submit",async event=>{
       event.preventDefault();
       const code=document.querySelector("#quoteCode").value.trim(),result=document.querySelector("#quoteResult");
