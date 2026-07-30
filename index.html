@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A股AI研究部｜公开联网学习版</title>
+  <style>
+    :root{
+      --ink:#18211e;--muted:#6c756f;--paper:#f2efe7;--card:#fffdf8;--line:#d9d4c8;
+      --dark:#17201e;--dark2:#202a27;--red:#bc3b2d;--green:#1d765e;--gold:#c08a3e;
+      --shadow:0 18px 55px rgba(29,38,33,.10)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC",sans-serif}
+    button,input,select{font:inherit}
+    a{color:inherit;text-decoration:none}
+    .topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:24px;padding:13px clamp(18px,5vw,70px);background:rgba(242,239,231,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:900}
+    .mark{width:36px;height:36px;display:grid;place-items:center;border-radius:11px;background:var(--red);color:white;font-family:Georgia,serif;font-size:21px}
+    .brand small{display:block;margin-top:2px;color:var(--muted);font-size:9px;font-weight:600}
+    nav{display:flex;gap:16px;margin-left:auto;color:#5f6862;font-size:11px;font-weight:700}
+    .offline{padding:7px 10px;border-radius:999px;background:#e5ded0;color:#77684d;font-size:9px;font-weight:800}
+    .hero{min-height:620px;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(340px,.88fr);gap:50px;align-items:center;padding:70px clamp(22px,6vw,92px);background:
+      radial-gradient(circle at 82% 17%,rgba(188,59,45,.13),transparent 28%),
+      linear-gradient(145deg,#f7f3ea,#e9e4d8)}
+    .eyebrow{margin:0 0 13px;color:var(--red);font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+    h1,h2{font-family:Georgia,"Songti SC",serif;letter-spacing:-.035em}
+    h1{max-width:850px;margin:0;font-size:clamp(48px,7vw,92px);line-height:1.02}
+    h1 span{display:block;color:var(--red)}
+    .lead{max-width:720px;margin:27px 0;color:#56615a;font-size:16px;line-height:1.9}
+    .actions{display:flex;flex-wrap:wrap;gap:10px}
+    .btn{border:0;border-radius:10px;padding:13px 18px;background:var(--red);color:white;font-size:11px;font-weight:900;cursor:pointer}
+    .btn.secondary{border:1px solid var(--line);background:var(--card);color:var(--ink)}
+    .hero-card{padding:24px;border:1px solid rgba(255,255,255,.12);border-radius:23px;background:var(--dark);color:white;box-shadow:var(--shadow)}
+    .hero-card header{display:flex;justify-content:space-between;align-items:center;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .hero-card header strong{font-size:14px}.hero-card header span{color:#81c9b5;font-size:10px}
+    .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:15px}
+    .metric{padding:15px;border-radius:13px;background:var(--dark2)}
+    .metric span,.metric small{display:block;color:#8d9a94;font-size:9px}
+    .metric strong{display:block;margin:5px 0;color:#efc48f;font-family:Georgia,serif;font-size:27px}
+    .section{padding:82px clamp(18px,5vw,76px)}
+    .dark{background:var(--dark);color:white}
+    .heading{max-width:1320px;margin:0 auto 34px;display:grid;grid-template-columns:1fr minmax(280px,.56fr);gap:38px;align-items:end}
+    .heading h2{margin:0;font-size:clamp(34px,4vw,56px);line-height:1.1}
+    .heading>p{margin:0;color:var(--muted);font-size:12px;line-height:1.8}
+    .dark .heading>p{color:#a4aea8}
+    .director-grid{max-width:1320px;margin:auto;display:grid;grid-template-columns:minmax(320px,.85fr) minmax(0,1.15fr);gap:18px}
+    .panel{border:1px solid rgba(255,255,255,.11);border-radius:20px;background:var(--dark2);overflow:hidden}
+    .score-panel{padding:22px}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    label{color:#93a099;font-size:9px;font-weight:800}
+    input,select{width:100%;margin-top:6px;padding:10px;border:1px solid rgba(255,255,255,.14);border-radius:9px;background:#151c1a;color:white;outline:none}
+    input[type=range]{height:4px;padding:0;border:0;accent-color:var(--red)}
+    .score-list{margin:15px 0}
+    .score-line{display:grid;grid-template-columns:116px 1fr 34px;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+    .score-line span{font-size:10px;font-weight:800}.score-line b{font-size:11px;text-align:right}
+    .risk-line{display:flex;align-items:center;gap:8px;margin-top:12px;padding:10px;border:1px solid rgba(255,255,255,.12);border-radius:9px;color:#bdc6c1;font-size:10px}
+    .risk-line input{width:15px;height:15px;margin:0;accent-color:var(--red)}
+    .result{margin-top:14px;padding:16px;border-radius:13px;background:#121816}
+    .result small{color:#87928c;font-size:9px}.result strong{display:block;margin-top:4px;color:#efc18a;font-size:27px}
+    .result em{display:block;margin-top:10px;padding:8px;border-radius:8px;background:rgba(192,138,62,.14);color:#efc18a;text-align:center;font-size:11px;font-style:normal;font-weight:900}
+    .notes{padding:0 20px}
+    .director{display:grid;grid-template-columns:42px 1fr;gap:12px;padding:19px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+    .avatar{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#8f3a2b;color:white;font-family:Georgia,serif;font-weight:900}
+    .director:nth-child(2) .avatar{background:#496678}.director:nth-child(3) .avatar{background:#2f6d5b}
+    .director h3{margin:0;font-size:12px}.director h3 span{margin-left:7px;color:#d2a66f;font-size:9px}
+    .director p{margin:7px 0 0;color:#a9b3ad;font-size:10px;line-height:1.7}
+    .workflow{max-width:1320px;margin:0 auto 18px;display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:var(--dark2)}
+    .workflow div{padding:20px;border-right:1px solid rgba(255,255,255,.09)}.workflow div:last-child{border:0}
+    .workflow span{color:#dc907f;font-family:Georgia,serif;font-size:18px}.workflow strong{display:block;margin-top:9px;font-size:12px}.workflow p{margin:7px 0 0;color:#99a59e;font-size:9px;line-height:1.7}
+    .roster-wrap{max-width:1320px;margin:auto;overflow:auto;border:1px solid rgba(255,255,255,.12);border-radius:17px;background:var(--dark2)}
+    table{width:100%;border-collapse:collapse;min-width:1030px}
+    th,td{padding:12px 10px;border-bottom:1px solid rgba(255,255,255,.07);text-align:left}
+    th{color:#819089;font-size:9px}td{color:#b5beb9;font-size:10px;line-height:1.55}
+    td strong{color:white}.agent-code{display:block;color:#dc907f;font-family:Georgia,serif;font-size:9px}
+    .ready{display:inline-block;margin-top:4px;padding:2px 5px;border-radius:99px;background:rgba(29,118,94,.25);color:#83d3ba;font-size:7px}
+    .light{background:var(--paper)}
+    .learn-grid,.source-grid{max-width:1320px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .learn-card,.source-card{padding:19px;border:1px solid var(--line);border-radius:17px;background:var(--card);box-shadow:0 10px 28px rgba(30,38,34,.05)}
+    .candle-stage{height:100px;display:grid;place-items:center;border-radius:12px;background:
+      linear-gradient(rgba(80,88,82,.06) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(80,88,82,.06) 1px,transparent 1px),#eee9dd;background-size:22px 22px}
+    .candle{position:relative;width:34px;height:76px;color:var(--red)}.candle:before{content:"";position:absolute;left:16px;top:0;bottom:0;width:2px;background:currentColor}.candle:after{content:"";position:absolute;left:5px;right:5px;top:18px;height:39px;background:currentColor;border:2px solid currentColor}
+    .candle.down{color:var(--green)}.candle.doji{color:var(--gold)}.candle.doji:after{top:37px;height:3px}.candle.hammer:after{top:12px;height:17px}
+    .learn-card h3{margin:14px 0 7px;font-family:Georgia,serif;font-size:22px}.learn-card p,.source-card p{margin:0;color:var(--muted);font-size:10px;line-height:1.7}
+    .sim-grid{max-width:1320px;margin:auto;display:grid;grid-template-columns:340px 1fr;gap:16px}
+    .ticket,.account{padding:21px;border:1px solid var(--line);border-radius:18px;background:var(--card);box-shadow:var(--shadow)}
+    .ticket h3,.account h3{margin:0 0 16px;font-size:15px}
+    .ticket label{display:block;margin-top:11px;color:var(--muted)}.ticket input,.ticket select{border-color:var(--line);background:white;color:var(--ink)}
+    .ticket .field-row{margin-top:0}.ticket button{width:100%;margin-top:18px}
+    .message{min-height:30px;margin-top:9px;color:var(--muted);font-size:9px;line-height:1.5}
+    .account-top{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:14px}
+    .account-top div{padding:14px;border-radius:12px;background:#f0ece2}.account-top span{display:block;color:var(--muted);font-size:8px}.account-top strong{display:block;margin-top:4px;font-family:Georgia,serif;font-size:19px}
+    .pos-table{min-width:680px}.pos-table th,.pos-table td{border-color:#e5e0d5;color:var(--muted)}.pos-table td strong{color:var(--ink)}
+    .source-grid{grid-template-columns:repeat(3,1fr)}
+    .source-card span{color:var(--red);font-size:9px;font-weight:900}.source-card h3{margin:8px 0;font-size:14px}.source-card:hover{transform:translateY(-2px)}
+    .chart-shell{max-width:1320px;margin:auto;padding:12px;border:1px solid var(--line);border-radius:18px;background:var(--card);box-shadow:var(--shadow)}
+    .chart-frame{height:620px;overflow:hidden;border-radius:12px;background:#e9e4d8}
+    .chart-note{max-width:1320px;margin:14px auto 0;color:var(--muted);font-size:10px;line-height:1.7}
+    .warning{max-width:1320px;margin:20px auto 0;padding:15px;border:1px solid #d8c9a8;border-radius:12px;background:#f3ead7;color:#6f624b;font-size:10px;line-height:1.7}
+    footer{padding:30px clamp(18px,5vw,76px);border-top:1px solid var(--line);color:var(--muted);font-size:9px;line-height:1.7}
+    @media(max-width:980px){nav{display:none}.hero,.director-grid,.sim-grid{grid-template-columns:1fr}.learn-grid{grid-template-columns:repeat(2,1fr)}.source-grid{grid-template-columns:1fr}.workflow{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){.hero{padding-top:48px}.offline{margin-left:auto}.hero-card{padding:17px}.heading{grid-template-columns:1fr;gap:12px}.learn-grid,.workflow,.account-top{grid-template-columns:1fr}.workflow div{border-right:0;border-bottom:1px solid rgba(255,255,255,.09)}.field-row{grid-template-columns:1fr}.score-line{grid-template-columns:94px 1fr 28px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top"><span class="mark">A</span><span>A股AI研究部<small>21位AI专员 · 公开联网学习版</small></span></a>
+    <nav><a href="#meeting">三总监会商</a><a href="#team">AI部门</a><a href="#market">联网行情</a><a href="#learn">K线课堂</a><a href="#sim">模拟账户</a><a href="#sources">官方来源</a></nav>
+    <span class="offline">公开联网版</span>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">先学会判断，再练习决策</p>
+        <h1>把A股研究变成<span>可复盘的AI部门</span></h1>
+        <p class="lead">21位AI专员覆盖全部岗位，三位总监从公司质量、市场环境和风险角度互相质询。你可以查看联网行情、练习六维评分、阅读K线，并用100万元浏览器模拟账户记录交易。</p>
+        <div class="actions"><a class="btn" href="#meeting">开始会商训练</a><a class="btn secondary" href="#team">查看21位AI</a></div>
+      </div>
+      <aside class="hero-card">
+        <header><strong>AI部门配置状态</strong><span>全部已配置</span></header>
+        <div class="metrics">
+          <div class="metric"><span>AI岗位覆盖</span><strong>21/21</strong><small>9个业务模块</small></div>
+          <div class="metric"><span>会商总监</span><strong>3</strong><small>投研 · 策略 · 风控</small></div>
+          <div class="metric"><span>风险规则</span><strong>1票</strong><small>风控可独立否决</small></div>
+          <div class="metric"><span>模拟本金</span><strong>100万</strong><small>仅保存在本机</small></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section dark" id="meeting">
+      <div class="heading"><div><p class="eyebrow">三总监会商</p><h2>同一只股票，必须经受三种质疑</h2></div><p>调整六项评分，观察投研、策略和风控观点如何变化。评分是训练框架，不是买卖指令。</p></div>
+      <div class="director-grid">
+        <div class="panel score-panel">
+          <div class="field-row"><label>训练标的<input id="stockName" value="训练样例公司" /></label><label>市场状态<select id="market"><option value="0">强势</option><option value="5" selected>震荡</option><option value="15">弱势</option></select></label></div>
+          <div class="score-list" id="scoreList"></div>
+          <label class="risk-line"><input id="hardRisk" type="checkbox" />发现重大违法、财务疑点、退市或流动性硬风险</label>
+          <div class="result"><small>六维加权与市场修正</small><strong id="finalScore">—</strong><em id="outcome">—</em></div>
+        </div>
+        <div class="panel notes">
+          <article class="director"><span class="avatar">林</span><div><h3>林策｜投研总监 <span id="researchScore"></span></h3><p id="researchNote"></p></div></article>
+          <article class="director"><span class="avatar">周</span><div><h3>周衡｜首席策略总监 <span id="strategyScore"></span></h3><p id="strategyNote"></p></div></article>
+          <article class="director"><span class="avatar">顾</span><div><h3>顾岚｜风控合规总监 <span id="riskScore"></span></h3><p id="riskNote"></p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="team">
+      <div class="heading"><div><p class="eyebrow">完整AI编制</p><h2>21位AI专员全部到岗</h2></div><p>每个岗位都设定固定职责、标准产出和汇报对象。提出观点、执行模拟交易和审计留痕由不同AI承担。</p></div>
+      <div class="workflow">
+        <div><span>07:45</span><strong>数据开门</strong><p>数据脉校验数据，稳盾检查系统，留痕官建立审计链。</p></div>
+        <div><span>08:10</span><strong>并行研究</strong><p>宏观、政策、行业、事件与量化岗位分别提交证据卡。</p></div>
+        <div><span>08:45</span><strong>三总监会商</strong><p>林策提出结论，周衡验证环境，顾岚执行风险闸门。</p></div>
+        <div><span>15:15</span><strong>模拟与复盘</strong><p>仿真盘执行模拟指令，晨钟汇总日报并记录策略失效。</p></div>
+      </div>
+      <div class="roster-wrap"><table><thead><tr><th>AI成员</th><th>模块</th><th>岗位</th><th>主要职责</th><th>固定产出</th><th>汇报</th></tr></thead><tbody id="roster"></tbody></table></div>
+    </section>
+
+    <section class="section light" id="market">
+      <div class="heading"><div><p class="eyebrow">联网行情观察</p><h2>先看趋势与成交，再讨论股票优劣</h2></div><p>图表由第三方行情组件提供，可能存在延迟。切换代码、周期和指标进行观察，正式数据以交易所和正规券商终端为准。</p></div>
+      <div class="chart-shell">
+        <div class="chart-frame">
+          <div class="tradingview-widget-container" style="height:100%;width:100%">
+            <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+            {
+              "autosize": true,
+              "symbol": "SSE:000001",
+              "interval": "D",
+              "timezone": "Asia/Shanghai",
+              "theme": "light",
+              "style": "1",
+              "locale": "zh_CN",
+              "allow_symbol_change": true,
+              "calendar": false,
+              "support_host": "https://www.tradingview.com"
+            }
+            </script>
+          </div>
+        </div>
+      </div>
+      <p class="chart-note">新手练习顺序：先判断指数环境，再看个股趋势；先看周线位置，再看日线结构；最后结合成交量、公告和财务证据。不要凭单根K线作决定。</p>
+    </section>
+
+    <section class="section light" id="learn">
+      <div class="heading"><div><p class="eyebrow">K线新手课堂</p><h2>形态只描述行为，不预测命运</h2></div><p>A股通常红涨绿跌。看K线时必须同时判断位置、趋势、成交量和市场环境。</p></div>
+      <div class="learn-grid">
+        <article class="learn-card"><div class="candle-stage"><i class="candle"></i></div><h3>阳线</h3><p>收盘高于开盘。实体越长代表当日买方推进越明显，但高位放量长阳与低位突破的含义不同。</p></article>
+        <article class="learn-card"><div class="candle-stage"><i class="candle down"></i></div><h3>阴线</h3><p>收盘低于开盘。不要因为一根阴线恐慌，要结合支撑、趋势和成交量判断抛压是否持续。</p></article>
+        <article class="learn-card"><div class="candle-stage"><i class="candle doji"></i></div><h3>十字星</h3><p>开收盘接近，代表多空暂时平衡。出现在趋势末端才更值得关注，单独出现不能确认反转。</p></article>
+        <article class="learn-card"><div class="candle-stage"><i class="candle hammer"></i></div><h3>锤头线</h3><p>盘中下探后被拉回。需要后续K线、支撑位与成交量共同确认，不能视为“必涨”信号。</p></article>
+      </div>
+    </section>
+
+    <section class="section light" id="sim">
+      <div class="heading"><div><p class="eyebrow">100万元模拟账户</p><h2>用记录训练纪律，不连接真实券商</h2></div><p>交易记录只保存在当前浏览器。价格由你手动输入，适合练习仓位、成本和复盘。</p></div>
+      <div class="sim-grid">
+        <form class="ticket" id="tradeForm">
+          <h3>模拟成交单</h3>
+          <div class="field-row"><label>代码<input id="code" placeholder="600000" required /></label><label>名称<input id="name" placeholder="样例公司" required /></label></div>
+          <div class="field-row"><label>方向<select id="side"><option value="buy">买入</option><option value="sell">卖出</option></select></label><label>数量<input id="qty" type="number" min="1" step="1" value="100" required /></label></div>
+          <label>价格<input id="price" type="number" min=".01" step=".01" required /></label>
+          <button class="btn" type="submit">记录模拟交易</button>
+          <p class="message" id="message"></p>
+          <button class="btn secondary" type="button" id="reset">重置模拟账户</button>
+        </form>
+        <div class="account">
+          <h3>本机模拟组合</h3>
+          <div class="account-top"><div><span>总资产</span><strong id="equity">—</strong></div><div><span>可用现金</span><strong id="cash">—</strong></div><div><span>持仓市值</span><strong id="marketValue">—</strong></div></div>
+          <div style="overflow:auto"><table class="pos-table"><thead><tr><th>代码/名称</th><th>数量</th><th>成本</th><th>最新价</th><th>浮动盈亏</th></tr></thead><tbody id="positions"></tbody></table></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light" id="sources">
+      <div class="heading"><div><p class="eyebrow">官方信息入口</p><h2>先找原始来源，再看二手解读</h2></div><p>行情组件与外部入口需要联网；公告、监管和财务结论应回到官方来源核实。</p></div>
+      <div class="source-grid">
+        <a class="source-card" href="https://www.csrc.gov.cn/" target="_blank" rel="noreferrer"><span>监管</span><h3>中国证监会</h3><p>政策、处罚与风险提示</p></a>
+        <a class="source-card" href="https://www.sse.com.cn/" target="_blank" rel="noreferrer"><span>沪市</span><h3>上海证券交易所</h3><p>公告、监管与交易信息</p></a>
+        <a class="source-card" href="https://www.szse.cn/" target="_blank" rel="noreferrer"><span>深市</span><h3>深圳证券交易所</h3><p>深市公告与本所通知</p></a>
+        <a class="source-card" href="https://www.bse.cn/" target="_blank" rel="noreferrer"><span>北交所</span><h3>北京证券交易所</h3><p>公司公告与监管信息</p></a>
+        <a class="source-card" href="https://www.cninfo.com.cn/" target="_blank" rel="noreferrer"><span>披露</span><h3>巨潮资讯网</h3><p>法定披露与财务报告</p></a>
+        <a class="source-card" href="https://data.stats.gov.cn/" target="_blank" rel="noreferrer"><span>宏观</span><h3>国家统计局</h3><p>经济数据与发布日程</p></a>
+      </div>
+      <div class="warning">重要提示：本工具用于学习、研究与模拟训练，不构成证券投资咨询或具体买卖建议。AI可能出错，历史策略和回测结果不能保证未来收益。</div>
+    </section>
+  </main>
+  <footer>© A股AI研究部公开联网学习版。模拟数据仅保存在当前浏览器；清除站点数据会同时清除模拟账户。</footer>
+
+  <script>
+    const scoreDefs=[
+      ["quality","公司质量",20,72],["value","估值吸引力",15,61],["trend","趋势强度",20,68],
+      ["earnings","盈利变化",15,64],["catalyst","事件催化",10,58],["safety","风险安全",20,76]
+    ];
+    const agents=[
+      ["AI-01","林策","管理层","部门总监","研究议题、观察池审批与三总监会商","晨会任务单、观察池审批单","用户"],
+      ["AI-02","周衡","管理层","副总监兼首席策略总监","市场风格、仓位环境与行业配置","市场状态灯、行业配置建议","林策"],
+      ["AI-03","景和","宏观策略组","宏观研究员","经济、利率、汇率、商品与海外市场","宏观温度计、风险日历","周衡"],
+      ["AI-04","规澜","宏观策略组","政策研究员","监管、交易所与产业政策变化","政策摘要、影响链条","周衡"],
+      ["AI-05","硅瞳","行业研究组","TMT研究员","半导体、计算机、通信与传媒","TMT候选清单、证据卡","林策"],
+      ["AI-06","机衡","行业研究组","高端制造研究员","机器人、机械、军工与工业自动化","制造景气表、订单卡","林策"],
+      ["AI-07","绿驰","行业研究组","新能源汽车研究员","汽车、锂电、光伏、风电与电力设备","产业链价格表、公司比较","林策"],
+      ["AI-08","常青","行业研究组","消费研究员","食品饮料、零售、农业、家电与旅游","消费景气表、渠道清单","林策"],
+      ["AI-09","杏林","行业研究组","医药研究员","医药、医疗器械与生物科技","管线集采跟踪、估值比较","林策"],
+      ["AI-10","周砺","行业研究组","金融周期研究员","金融、地产、煤炭、有色与化工","周期位置表、供需利润","林策"],
+      ["AI-11","盘星","市场监测组","盘面监测员·指数广度","指数、成交额、涨跌家数与市场宽度","盘面广度快照、异常提示","周衡"],
+      ["AI-12","异动哨","市场监测组","盘面监测员·板块异动","板块、涨停、量价异动与拥挤度","异动列表、拥挤警报","周衡"],
+      ["AI-13","仿真盘","市场监测组","模拟交易员","执行批准后的模拟指令并维护日志","模拟成交单、持仓日报","顾岚"],
+      ["AI-14","因子镜","量化数据组","量化研究员·多因子","质量、估值、动量与盈利变化因子","因子得分、回测摘要","周衡"],
+      ["AI-15","轮动钟","量化数据组","量化研究员·择时轮动","情绪、择时、行业轮动与策略失效","轮动排名、失效诊断","周衡"],
+      ["AI-16","数据脉","量化数据组","数据工程师","行情、公告、财务数据与仪表盘状态","数据健康报告、缺失清单","稳盾"],
+      ["AI-17","顾岚","风控合规组","风控合规总监兼风控经理","回撤、集中度、异常波动与模型失效","风险闸门、否决或放行","用户"],
+      ["AI-18","留痕官","风控合规组","合规审计员","来源、权限、报告发布与操作留痕","来源审计表、决策留痕","顾岚"],
+      ["AI-19","事件眼","信息运营组","公告与事件分析员","财报、增减持、回购、重组与处罚","事件影响卡、公告优先级","林策"],
+      ["AI-20","晨钟","信息运营组","报告运营专员","晨报、午报、收盘报告与会议纪要","四时段简报、会商纪要","林策"],
+      ["AI-21","稳盾","技术保障组","IT与信息安全工程师","权限、备份、终端安全与系统稳定","运行状态页、安全巡检单","顾岚"]
+    ];
+    const scoreList=document.querySelector("#scoreList");
+    scoreDefs.forEach(([key,label,weight,value])=>{
+      const row=document.createElement("div");row.className="score-line";
+      row.innerHTML=`<span>${label} · ${weight}%</span><input id="${key}" type="range" min="0" max="100" value="${value}"><b id="${key}V">${value}</b>`;
+      scoreList.appendChild(row);
+    });
+    const roster=document.querySelector("#roster");
+    agents.forEach(a=>{const tr=document.createElement("tr");tr.innerHTML=`<td><span class="agent-code">${a[0]}</span><strong>${a[1]}</strong><i class="ready">已配置</i></td><td>${a[2]}</td><td><strong>${a[3]}</strong></td><td>${a[4]}</td><td>${a[5]}</td><td>${a[6]}</td>`;roster.appendChild(tr)});
+    function updateMeeting(){
+      const values={};scoreDefs.forEach(([key])=>{values[key]=Number(document.querySelector("#"+key).value);document.querySelector("#"+key+"V").textContent=values[key]});
+      const penalty=Number(document.querySelector("#market").value),hard=document.querySelector("#hardRisk").checked;
+      const raw=scoreDefs.reduce((s,[key,,weight])=>s+values[key]*weight/100,0),final=hard?0:Math.max(0,raw-penalty);
+      const research=Math.round((values.quality+values.value+values.earnings)/3);
+      const strategy=Math.round((values.trend+values.catalyst+(100-penalty*4))/3);
+      let outcome=hard?"风险否决":final>=75&&values.safety>=60?"重点研究":final>=60?"继续观察":"暂缓进入";
+      document.querySelector("#finalScore").textContent=final.toFixed(1);document.querySelector("#outcome").textContent=outcome;
+      document.querySelector("#researchScore").textContent=research+"分";document.querySelector("#strategyScore").textContent=strategy+"分";document.querySelector("#riskScore").textContent=(hard?0:values.safety)+"分";
+      document.querySelector("#researchNote").textContent=research>=72?"基本面达到深度研究门槛，仍需核对现金流、一次性损益和同行口径。":"基本面证据不足，先补齐财报与经营验证，不因低估值或故事草率升级。";
+      document.querySelector("#strategyNote").textContent=penalty===15?"弱势环境扣15分，即使个股形态尚可也应降低优先级。":`趋势、催化与市场环境合成${strategy}分，关注信号是否有成交扩散和行业共振。`;
+      document.querySelector("#riskNote").textContent=hard?"发现硬风险，行使独立否决权；风险解除前不得进入模拟组合。":values.safety<55?"风险安全得分不足，不同意升级；先检查波动、流动性、财务与监管标签。":"暂未触发否决，但必须写清失效条件和最大可承受回撤。";
+    }
+    scoreDefs.forEach(([key])=>document.querySelector("#"+key).addEventListener("input",updateMeeting));
+    document.querySelector("#market").addEventListener("change",updateMeeting);document.querySelector("#hardRisk").addEventListener("change",updateMeeting);updateMeeting();
+
+    const fmt=n=>new Intl.NumberFormat("zh-CN",{style:"currency",currency:"CNY",maximumFractionDigits:2}).format(n);
+    let sim;try{sim=JSON.parse(localStorage.getItem("ashare-offline-sim"))||{cash:1000000,positions:[]}}catch{sim={cash:1000000,positions:[]}}
+    function save(){localStorage.setItem("ashare-offline-sim",JSON.stringify(sim))}
+    function renderSim(){
+      const mv=sim.positions.reduce((s,p)=>s+p.qty*p.last,0);document.querySelector("#cash").textContent=fmt(sim.cash);document.querySelector("#marketValue").textContent=fmt(mv);document.querySelector("#equity").textContent=fmt(sim.cash+mv);
+      const body=document.querySelector("#positions");body.innerHTML="";
+      if(!sim.positions.length){body.innerHTML='<tr><td colspan="5">暂无持仓，请先记录一笔模拟买入。</td></tr>';return}
+      sim.positions.forEach(p=>{const pnl=(p.last-p.cost)*p.qty,tr=document.createElement("tr");tr.innerHTML=`<td><strong>${p.code}</strong>${p.name}</td><td>${p.qty}</td><td>${fmt(p.cost)}</td><td>${fmt(p.last)}</td><td style="color:${pnl>=0?'#bc3b2d':'#1d765e'}">${fmt(pnl)}</td>`;body.appendChild(tr)})
+    }
+    document.querySelector("#tradeForm").addEventListener("submit",e=>{
+      e.preventDefault();const code=document.querySelector("#code").value.trim().toUpperCase(),name=document.querySelector("#name").value.trim(),side=document.querySelector("#side").value,qty=Number(document.querySelector("#qty").value),price=Number(document.querySelector("#price").value),msg=document.querySelector("#message");
+      if(!code||!name||!Number.isInteger(qty)||qty<=0||price<=0){msg.textContent="请填写有效代码、名称、整数数量和价格。";return}
+      const fee=Math.max(5,qty*price*.0005),p=sim.positions.find(x=>x.code===code);
+      if(side==="buy"){const total=qty*price+fee;if(total>sim.cash){msg.textContent="模拟现金不足。";return}sim.cash-=total;if(p){p.cost=(p.cost*p.qty+total)/(p.qty+qty);p.qty+=qty;p.last=price}else sim.positions.push({code,name,qty,cost:total/qty,last:price});msg.textContent=`已记录模拟买入：${name} ${qty}股。`}
+      else{if(!p||p.qty<qty){msg.textContent="模拟持仓不足。";return}sim.cash+=qty*price-fee;p.qty-=qty;p.last=price;sim.positions=sim.positions.filter(x=>x.qty>0);msg.textContent=`已记录模拟卖出：${name} ${qty}股。`}
+      save();renderSim();document.querySelector("#price").value="";
+    });
+    document.querySelector("#reset").addEventListener("click",()=>{if(confirm("确认清空模拟持仓并恢复100万元？")){sim={cash:1000000,positions:[]};save();renderSim();document.querySelector("#message").textContent="模拟账户已重置。"}});
+    renderSim();
+  </script>
+</body>
+</html>
