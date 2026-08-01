@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>A股AI研究部｜公开联网学习版</title>
+  <title>A股AI研究部｜联网量化投研台</title>
   <style>
     :root{
       --ink:#18211e;--muted:#6c756f;--paper:#f2efe7;--card:#fffdf8;--line:#d9d4c8;
@@ -76,23 +76,10 @@
     td strong{color:white}.agent-code{display:block;color:#dc907f;font-family:Georgia,serif;font-size:9px}
     .ready{display:inline-block;margin-top:4px;padding:2px 5px;border-radius:99px;background:rgba(29,118,94,.25);color:#83d3ba;font-size:7px}
     .light{background:var(--paper)}
-    .learn-grid,.source-grid{max-width:1320px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .learn-card,.source-card{padding:19px;border:1px solid var(--line);border-radius:17px;background:var(--card);box-shadow:0 10px 28px rgba(30,38,34,.05)}
-    .candle-stage{height:100px;display:grid;place-items:center;border-radius:12px;background:
-      linear-gradient(rgba(80,88,82,.06) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(80,88,82,.06) 1px,transparent 1px),#eee9dd;background-size:22px 22px}
-    .candle{position:relative;width:34px;height:76px;color:var(--red)}.candle:before{content:"";position:absolute;left:16px;top:0;bottom:0;width:2px;background:currentColor}.candle:after{content:"";position:absolute;left:5px;right:5px;top:18px;height:39px;background:currentColor;border:2px solid currentColor}
-    .candle.down{color:var(--green)}.candle.doji{color:var(--gold)}.candle.doji:after{top:37px;height:3px}.candle.hammer:after{top:12px;height:17px}
-    .learn-card h3{margin:14px 0 7px;font-family:Georgia,serif;font-size:22px}.learn-card p,.source-card p{margin:0;color:var(--muted);font-size:10px;line-height:1.7}
-    .sim-grid{max-width:1320px;margin:auto;display:grid;grid-template-columns:340px 1fr;gap:16px}
-    .ticket,.account{padding:21px;border:1px solid var(--line);border-radius:18px;background:var(--card);box-shadow:var(--shadow)}
-    .ticket h3,.account h3{margin:0 0 16px;font-size:15px}
-    .ticket label{display:block;margin-top:11px;color:var(--muted)}.ticket input,.ticket select{border-color:var(--line);background:white;color:var(--ink)}
-    .ticket .field-row{margin-top:0}.ticket button{width:100%;margin-top:18px}
+    .source-grid{max-width:1320px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .source-card{padding:19px;border:1px solid var(--line);border-radius:17px;background:var(--card);box-shadow:0 10px 28px rgba(30,38,34,.05)}
+    .source-card p{margin:0;color:var(--muted);font-size:10px;line-height:1.7}
     .message{min-height:30px;margin-top:9px;color:var(--muted);font-size:9px;line-height:1.5}
-    .account-top{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:14px}
-    .account-top div{padding:14px;border-radius:12px;background:#f0ece2}.account-top span{display:block;color:var(--muted);font-size:8px}.account-top strong{display:block;margin-top:4px;font-family:Georgia,serif;font-size:19px}
-    .pos-table{min-width:680px}.pos-table th,.pos-table td{border-color:#e5e0d5;color:var(--muted)}.pos-table td strong{color:var(--ink)}
     .source-grid{grid-template-columns:repeat(3,1fr)}
     .source-card span{color:var(--red);font-size:9px;font-weight:900}.source-card h3{margin:8px 0;font-size:14px}.source-card:hover{transform:translateY(-2px)}
     .chart-shell{max-width:1320px;margin:auto;padding:12px;border:1px solid var(--line);border-radius:18px;background:var(--card);box-shadow:var(--shadow)}
@@ -114,6 +101,18 @@
     .quote-kpis{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}.quote-kpis span{padding:7px 9px;border-radius:8px;background:#f0ece2;font-size:9px}
     .brief-grid{max-width:1320px;margin:0 auto 14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
     .brief-card{padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--card)}.brief-card span{color:var(--red);font-size:8px;font-weight:900}.brief-card strong{display:block;margin:6px 0;font-size:12px}.brief-card p{margin:0;color:var(--muted);font-size:9px;line-height:1.7}
+    .control-deck{max-width:1320px;margin:38px auto;padding:24px;border-radius:22px;background:var(--dark);color:white;box-shadow:var(--shadow)}
+    .control-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .control-head h2{margin:4px 0 0;font-size:clamp(28px,3vw,42px)}.control-head p{max-width:480px;margin:0;color:#9da8a2;font-size:9px;line-height:1.7}
+    .control-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:16px 0}
+    .control-kpi{padding:14px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:var(--dark2)}
+    .control-kpi span{display:block;color:#8f9b94;font-size:8px}.control-kpi strong{display:block;margin-top:6px;color:#efc18a;font-family:Georgia,serif;font-size:21px}.control-kpi small{display:block;margin-top:4px;color:#829087;font-size:7px}
+    .control-panels{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:10px}
+    .control-panel{padding:16px;border-radius:14px;background:#121816}.control-panel h3{margin:0 0 12px;font-size:12px}
+    .signal-row{display:grid;grid-template-columns:118px 1fr 42px;gap:9px;align-items:center;margin:10px 0;color:#aab4ae;font-size:8px}.signal-row b{text-align:right;color:white;font-size:8px}
+    .signal-track{height:7px;overflow:hidden;border-radius:999px;background:#29332f}.signal-track i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#1d765e,#c08a3e,#bc3b2d)}
+    .ai-stream{display:grid;gap:7px}.ai-signal{display:grid;grid-template-columns:68px 1fr auto;gap:8px;align-items:center;padding:9px;border:1px solid rgba(255,255,255,.07);border-radius:9px;background:#19211f}
+    .ai-signal span{color:#dc907f;font-size:7px;font-weight:900}.ai-signal p{margin:0;color:#aeb8b2;font-size:8px;line-height:1.5}.ai-signal b{padding:4px 6px;border-radius:999px;background:rgba(29,118,94,.22);color:#86d1ba;font-size:7px}
     .pick-grid{max-width:1320px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .pick-card{padding:18px;border:1px solid var(--line);border-radius:17px;background:var(--card);box-shadow:0 9px 25px rgba(30,38,34,.05)}
     .pick-top{display:flex;justify-content:space-between;gap:12px}.pick-agent{color:var(--red);font-size:8px;font-weight:900}.pick-score{padding:5px 8px;border-radius:999px;background:#eee8dc;color:#725531;font-size:9px;font-weight:900}
@@ -137,7 +136,7 @@
     .daily-title{flex:1}.daily-title strong{display:block;font-size:14px}.daily-title small{color:#96a29b;font-size:8px}.gate-pill{padding:5px 7px;border-radius:999px;background:rgba(29,118,94,.25);color:#83d3ba;font-size:8px;font-weight:900}
     .daily-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:12px 0}.daily-metrics div{padding:8px;border-radius:8px;background:#151c1a}.daily-metrics span{display:block;color:#849189;font-size:7px}.daily-metrics strong{display:block;margin-top:3px;font-size:9px}
     .debate{display:grid;grid-template-columns:1fr 1fr;gap:7px}.debate div{padding:9px;border-radius:9px;background:#151c1a}.debate span{display:block;color:#d39a74;font-size:7px;font-weight:900}.debate p{margin:4px 0 0;color:#aeb8b2;font-size:8px;line-height:1.55}
-    .invalidation{margin:9px 0 0;color:#efc18a;font-size:8px;line-height:1.55}.sim-fill{margin-top:10px;border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:7px 9px;background:transparent;color:#d7dfda;font-size:8px;font-weight:800;cursor:pointer}
+    .invalidation{margin:9px 0 0;color:#efc18a;font-size:8px;line-height:1.55}
     .quant-empty{grid-column:1/-1;padding:30px;border:1px dashed rgba(255,255,255,.16);border-radius:14px;color:#aeb8b2;text-align:center;font-size:10px;line-height:1.7}
     .accuracy-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}.accuracy-strip div{padding:13px;border-radius:11px;background:#121816}.accuracy-strip span{display:block;color:#8d9992;font-size:8px}.accuracy-strip strong{display:block;margin-top:5px;color:#efc18a;font-size:15px}
     .backtest-lab{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}
@@ -147,24 +146,24 @@
     .backtest-report canvas{width:100%;height:150px;margin-top:10px;border-radius:10px;background:#0f1513}.backtest-summary{margin:9px 0 0;color:#9da8a2;font-size:8px;line-height:1.65}
     .warning{max-width:1320px;margin:20px auto 0;padding:15px;border:1px solid #d8c9a8;border-radius:12px;background:#f3ead7;color:#6f624b;font-size:10px;line-height:1.7}
     footer{padding:30px clamp(18px,5vw,76px);border-top:1px solid var(--line);color:var(--muted);font-size:9px;line-height:1.7}
-    @media(max-width:980px){nav{display:none}.hero,.director-grid,.sim-grid,.market-tools,.backtest-head{grid-template-columns:1fr}.learn-grid{grid-template-columns:repeat(2,1fr)}.source-grid{grid-template-columns:1fr}.workflow{grid-template-columns:repeat(2,1fr)}.index-grid{grid-template-columns:repeat(2,1fr)}.pick-grid,.daily-grid{grid-template-columns:repeat(2,1fr)}.quant-stat-grid{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:640px){.hero{padding-top:48px}.offline{margin-left:auto}.hero-card{padding:17px}.heading{grid-template-columns:1fr;gap:12px}.learn-grid,.workflow,.account-top,.brief-grid,.pick-grid,.daily-grid,.committee-grid,.accuracy-strip{grid-template-columns:1fr}.workflow div{border-right:0;border-bottom:1px solid rgba(255,255,255,.09)}.field-row{grid-template-columns:1fr}.score-line{grid-template-columns:94px 1fr 28px}.index-grid,.quant-stat-grid{grid-template-columns:repeat(2,1fr)}.daily-metrics,.backtest-metrics{grid-template-columns:repeat(2,1fr)}.debate{grid-template-columns:1fr}.chart-frame{height:480px}.live-bar,.quant-toolbar{align-items:flex-start;flex-wrap:wrap}.live-bar .btn{margin-left:0}.quant-lab{padding:17px}}
+    @media(max-width:980px){nav{display:none}.hero,.market-tools,.backtest-head,.control-panels{grid-template-columns:1fr}.source-grid{grid-template-columns:1fr}.workflow{grid-template-columns:repeat(2,1fr)}.index-grid{grid-template-columns:repeat(2,1fr)}.pick-grid,.daily-grid{grid-template-columns:repeat(2,1fr)}.quant-stat-grid,.control-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:640px){.hero{padding-top:48px}.offline{margin-left:auto}.hero-card{padding:17px}.heading{grid-template-columns:1fr;gap:12px}.workflow,.brief-grid,.pick-grid,.daily-grid,.committee-grid,.accuracy-strip{grid-template-columns:1fr}.workflow div{border-right:0;border-bottom:1px solid rgba(255,255,255,.09)}.index-grid,.quant-stat-grid,.control-grid{grid-template-columns:repeat(2,1fr)}.daily-metrics,.backtest-metrics{grid-template-columns:repeat(2,1fr)}.debate{grid-template-columns:1fr}.chart-frame{height:480px}.live-bar,.quant-toolbar,.control-head{align-items:flex-start;flex-wrap:wrap}.live-bar .btn{margin-left:0}.quant-lab,.control-deck{padding:17px}.signal-row{grid-template-columns:92px 1fr 36px}}
   </style>
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#top"><span class="mark">A</span><span>A股AI研究部<small>21位AI专员 · 公开联网学习版</small></span></a>
-    <nav><a href="#meeting">三总监会商</a><a href="#team">AI部门</a><a href="#market">联网行情</a><a href="#quant">量化V1</a><a href="#learn">K线课堂</a><a href="#sim">模拟账户</a><a href="#sources">官方来源</a></nav>
-    <span class="offline">公开联网版</span>
+    <a class="brand" href="#top"><span class="mark">A</span><span>A股AI研究部<small>21位AI专员 · 联网量化投研台</small></span></a>
+    <nav><a href="#market">实时行情</a><a href="#control">智能中枢</a><a href="#quant">AI选股</a><a href="#team">AI部门</a><a href="#chart">技术图表</a><a href="#sources">官方来源</a></nav>
+    <span class="offline">量化监控版</span>
   </header>
 
   <main id="top">
     <section class="hero">
       <div>
-        <p class="eyebrow">先学会判断，再练习决策</p>
-        <h1>把A股研究变成<span>可复盘的AI部门</span></h1>
-        <p class="lead">21位AI专员覆盖全部岗位，三位总监从公司质量、市场环境和风险角度互相质询。你可以查看联网行情、练习六维评分、阅读K线，并用100万元浏览器模拟账户记录交易。</p>
-        <div class="actions"><a class="btn" href="#meeting">开始会商训练</a><a class="btn secondary" href="#team">查看21位AI</a></div>
+        <p class="eyebrow">实时监测 · 多模型验证 · 风险否决</p>
+        <h1>让AI部门持续运行<span>A股量化投研流程</span></h1>
+        <p class="lead">21位AI专员覆盖数据、盘面、行业、策略、风控与审计。系统每60秒刷新高流动性A股样本，通过训练区间、样本外验证和三总监终审，形成每日最多10只研究观察对象。</p>
+        <div class="actions"><a class="btn" href="#quant">查看今日会商</a><a class="btn secondary" href="#control">进入智能中枢</a></div>
       </div>
       <aside class="hero-card">
         <header><strong>AI部门配置状态</strong><span>全部已配置</span></header>
@@ -172,35 +171,18 @@
           <div class="metric"><span>AI岗位覆盖</span><strong>21/21</strong><small>9个业务模块</small></div>
           <div class="metric"><span>会商总监</span><strong>3</strong><small>投研 · 策略 · 风控</small></div>
           <div class="metric"><span>风险规则</span><strong>1票</strong><small>风控可独立否决</small></div>
-          <div class="metric"><span>模拟本金</span><strong>100万</strong><small>仅保存在本机</small></div>
+          <div class="metric"><span>监测样本</span><strong>400</strong><small>高流动性A股</small></div>
         </div>
       </aside>
     </section>
 
-    <section class="section dark" id="meeting">
-      <div class="heading"><div><p class="eyebrow">三总监会商</p><h2>同一只股票，必须经受三种质疑</h2></div><p>调整六项评分，观察投研、策略和风控观点如何变化。评分是训练框架，不是买卖指令。</p></div>
-      <div class="director-grid">
-        <div class="panel score-panel">
-          <div class="field-row"><label>训练标的<input id="stockName" value="训练样例公司" /></label><label>市场状态<select id="marketRegime"><option value="0">强势</option><option value="5" selected>震荡</option><option value="15">弱势</option></select></label></div>
-          <div class="score-list" id="scoreList"></div>
-          <label class="risk-line"><input id="hardRisk" type="checkbox" />发现重大违法、财务疑点、退市或流动性硬风险</label>
-          <div class="result"><small>六维加权与市场修正</small><strong id="finalScore">—</strong><em id="outcome">—</em></div>
-        </div>
-        <div class="panel notes">
-          <article class="director"><span class="avatar">林</span><div><h3>林策｜投研总监 <span id="researchScore"></span></h3><p id="researchNote"></p></div></article>
-          <article class="director"><span class="avatar">周</span><div><h3>周衡｜首席策略总监 <span id="strategyScore"></span></h3><p id="strategyNote"></p></div></article>
-          <article class="director"><span class="avatar">顾</span><div><h3>顾岚｜风控合规总监 <span id="riskScore"></span></h3><p id="riskNote"></p></div></article>
-        </div>
-      </div>
-    </section>
-
     <section class="section dark" id="team">
-      <div class="heading"><div><p class="eyebrow">完整AI编制</p><h2>21位AI专员全部到岗</h2></div><p>每个岗位都设定固定职责、标准产出和汇报对象。提出观点、执行模拟交易和审计留痕由不同AI承担。</p></div>
+      <div class="heading"><div><p class="eyebrow">完整AI编制</p><h2>21位AI专员全部到岗</h2></div><p>每个岗位都设定固定职责、标准产出和汇报对象。研究、验证、风险否决和审计留痕由不同AI承担。</p></div>
       <div class="workflow">
         <div><span>07:45</span><strong>数据开门</strong><p>数据脉校验数据，稳盾检查系统，留痕官建立审计链。</p></div>
         <div><span>08:10</span><strong>并行研究</strong><p>宏观、政策、行业、事件与量化岗位分别提交证据卡。</p></div>
         <div><span>08:45</span><strong>三总监会商</strong><p>林策提出结论，周衡验证环境，顾岚执行风险闸门。</p></div>
-        <div><span>15:15</span><strong>模拟与复盘</strong><p>仿真盘执行模拟指令，晨钟汇总日报并记录策略失效。</p></div>
+        <div><span>15:15</span><strong>归因与复盘</strong><p>组合哨跟踪观察池表现，晨钟汇总日报并记录策略失效。</p></div>
       </div>
       <div class="roster-wrap"><table><thead><tr><th>AI成员</th><th>模块</th><th>岗位</th><th>主要职责</th><th>固定产出</th><th>汇报</th></tr></thead><tbody id="roster"></tbody></table></div>
     </section>
@@ -216,6 +198,41 @@
             <div class="inline-form"><input id="quoteCode" inputmode="numeric" maxlength="6" placeholder="输入6位代码，如 600519" required /><button class="btn" type="submit">查询</button></div>
           </form>
           <div class="quote-result" id="quoteResult"><h3>单股证据卡</h3><p>输入代码后显示最新价、涨跌幅、成交额、换手率、估值与资金流向。</p></div>
+        </div>
+      </div>
+      <div class="control-deck" id="control">
+        <div class="control-head">
+          <div><p class="eyebrow">AI智能监控中枢</p><h2>市场状态与模型风险同屏</h2></div>
+          <p>用市场宽度、指数强度、资金扩散、极端波动和数据覆盖率识别环境。这里只输出研究状态，不生成实盘指令。</p>
+        </div>
+        <div class="control-grid" id="controlMetrics">
+          <div class="control-kpi"><span>市场状态</span><strong>等待</strong><small>指数与宽度综合</small></div>
+          <div class="control-kpi"><span>上涨占比</span><strong>—</strong><small>高流动性样本</small></div>
+          <div class="control-kpi"><span>涨跌中位数</span><strong>—</strong><small>降低极端值干扰</small></div>
+          <div class="control-kpi"><span>资金扩散</span><strong>—</strong><small>净流入样本占比</small></div>
+          <div class="control-kpi"><span>高波动样本</span><strong>—</strong><small>日涨跌绝对值≥5%</small></div>
+          <div class="control-kpi"><span>数据覆盖</span><strong>—</strong><small>有效行情字段</small></div>
+        </div>
+        <div class="control-panels">
+          <article class="control-panel">
+            <h3>量化风险雷达</h3>
+            <div id="riskSignals">
+              <div class="signal-row"><span>市场宽度</span><div class="signal-track"><i style="width:0%"></i></div><b>—</b></div>
+              <div class="signal-row"><span>指数强度</span><div class="signal-track"><i style="width:0%"></i></div><b>—</b></div>
+              <div class="signal-row"><span>资金扩散</span><div class="signal-track"><i style="width:0%"></i></div><b>—</b></div>
+              <div class="signal-row"><span>风险安全</span><div class="signal-track"><i style="width:0%"></i></div><b>—</b></div>
+            </div>
+          </article>
+          <article class="control-panel">
+            <h3>AI岗位实时结论</h3>
+            <div class="ai-stream" id="aiStream">
+              <div class="ai-signal"><span>AI-11 盘星</span><p>等待市场宽度数据。</p><b>待机</b></div>
+              <div class="ai-signal"><span>AI-14 因子镜</span><p>等待多因子候选池。</p><b>待机</b></div>
+              <div class="ai-signal"><span>AI-15 轮动钟</span><p>等待行业强度统计。</p><b>待机</b></div>
+              <div class="ai-signal"><span>AI-16 数据脉</span><p>正在校验行情字段。</p><b>运行</b></div>
+              <div class="ai-signal"><span>AI-17 顾岚</span><p>风险否决规则已加载。</p><b>监控</b></div>
+            </div>
+          </article>
         </div>
       </div>
       <div class="heading"><div><p class="eyebrow">部门研究员选股</p><h2>六个行业岗位，各提交一个研究对象</h2></div><p>系统从成交额靠前的高流动性样本中筛选，排除ST、极端涨跌和异常波动，再按趋势、流动性、估值、资金流和风险进行可解释评分。</p></div>
@@ -236,7 +253,7 @@
           <div class="quant-stat"><span>历史闸门</span><strong>≥55%</strong></div>
           <div class="quant-stat"><span>验证周期</span><strong>5日</strong></div>
           <div class="quant-stat"><span>行业上限</span><strong>3只</strong></div>
-          <div class="quant-stat"><span>调仓方式</span><strong>仅模拟</strong></div>
+          <div class="quant-stat"><span>执行权限</span><strong>无交易</strong></div>
         </div>
         <div class="committee-grid" id="quantCommittee">
           <article class="committee-note"><span>AI-01 林策 · 投研总监</span><strong>等待研究员提名</strong><p>验证样本数与历史命中率，不达门槛不提交。</p></article>
@@ -249,14 +266,14 @@
           <div><span>未来实测命中率</span><strong>等待5个交易日</strong></div>
           <div><span>未来实测平均收益</span><strong>—</strong></div>
         </div>
-        <div class="method-note" style="margin:0;border-color:rgba(255,255,255,.18);color:#aeb8b2">“历史命中率”是固定规则在较晚时间段的模拟验证，不代表未来准确率；“未来实测”从名单生成后的下一交易日开盘起算，持有5个交易日并扣除0.12%模拟成本。网站不会自动下单，也不会承诺收益。</div>
+        <div class="method-note" style="margin:0;border-color:rgba(255,255,255,.18);color:#aeb8b2">“历史命中率”是固定规则在较晚时间段的研究验证，不代表未来准确率；“未来实测”从名单生成后的下一交易日开盘起算，跟踪5个交易日并扣除0.12%假设成本。网站没有交易接口，也不会承诺收益。</div>
         <div class="backtest-lab">
           <div class="backtest-head">
             <form class="backtest-form" id="backtestForm">
               <h3>单股历史验证实验室</h3>
               <label>6位A股代码<input id="backtestCode" inputmode="numeric" maxlength="6" value="600519" required /></label>
               <button class="btn" type="submit">运行5日规则回测</button>
-              <p class="message" id="backtestMessage">信号在收盘后生成，下一交易日开盘模拟进入。</p>
+              <p class="message" id="backtestMessage">信号在收盘后生成，下一交易日开盘起算。</p>
             </form>
             <div class="backtest-report">
               <h3 id="backtestTitle">等待回测</h3>
@@ -264,12 +281,12 @@
                 <div><span>验证样本</span><strong>—</strong></div><div><span>历史命中率</span><strong>—</strong></div><div><span>平均5日收益</span><strong>—</strong></div><div><span>最大回撤</span><strong>—</strong></div>
               </div>
               <canvas id="backtestChart" width="900" height="220" aria-label="回测权益曲线"></canvas>
-              <p class="backtest-summary" id="backtestSummary">回测会自动避开训练区间，并计入模拟交易成本；结果仅用于学习模型稳定性。</p>
+              <p class="backtest-summary" id="backtestSummary">回测会自动隔离训练区间与验证区间，并计入假设交易成本；结果用于监控模型稳定性。</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="heading"><div><p class="eyebrow">历史K线参考</p><h2>免费图表用于看结构，不用于核对实时成交</h2></div><p>TradingView 免费沪深行情通常延迟15分钟。实时快照看上方行情卡，K线形态与周期结构看下方图表。</p></div>
+      <div class="heading" id="chart"><div><p class="eyebrow">技术图表终端</p><h2>行情快照与周期结构分开核验</h2></div><p>TradingView 免费沪深图表通常存在延迟。近实时价格看上方行情卡，周期结构和量价位置看下方图表。</p></div>
       <div class="chart-shell">
         <div class="chart-frame">
           <div class="tradingview-widget-container" style="height:100%;width:100%">
@@ -291,37 +308,7 @@
           </div>
         </div>
       </div>
-      <p class="chart-note">新手练习顺序：先判断指数环境，再看个股趋势；先看周线位置，再看日线结构；最后结合成交量、公告和财务证据。不要凭单根K线或单次评分作决定。</p>
-    </section>
-
-    <section class="section light" id="learn">
-      <div class="heading"><div><p class="eyebrow">K线新手课堂</p><h2>形态只描述行为，不预测命运</h2></div><p>A股通常红涨绿跌。看K线时必须同时判断位置、趋势、成交量和市场环境。</p></div>
-      <div class="learn-grid">
-        <article class="learn-card"><div class="candle-stage"><i class="candle"></i></div><h3>阳线</h3><p>收盘高于开盘。实体越长代表当日买方推进越明显，但高位放量长阳与低位突破的含义不同。</p></article>
-        <article class="learn-card"><div class="candle-stage"><i class="candle down"></i></div><h3>阴线</h3><p>收盘低于开盘。不要因为一根阴线恐慌，要结合支撑、趋势和成交量判断抛压是否持续。</p></article>
-        <article class="learn-card"><div class="candle-stage"><i class="candle doji"></i></div><h3>十字星</h3><p>开收盘接近，代表多空暂时平衡。出现在趋势末端才更值得关注，单独出现不能确认反转。</p></article>
-        <article class="learn-card"><div class="candle-stage"><i class="candle hammer"></i></div><h3>锤头线</h3><p>盘中下探后被拉回。需要后续K线、支撑位与成交量共同确认，不能视为“必涨”信号。</p></article>
-      </div>
-    </section>
-
-    <section class="section light" id="sim">
-      <div class="heading"><div><p class="eyebrow">100万元模拟账户</p><h2>用记录训练纪律，不连接真实券商</h2></div><p>交易记录只保存在当前浏览器。价格由你手动输入，适合练习仓位、成本和复盘。</p></div>
-      <div class="sim-grid">
-        <form class="ticket" id="tradeForm">
-          <h3>模拟成交单</h3>
-          <div class="field-row"><label>代码<input id="code" placeholder="600000" required /></label><label>名称<input id="name" placeholder="样例公司" required /></label></div>
-          <div class="field-row"><label>方向<select id="side"><option value="buy">买入</option><option value="sell">卖出</option></select></label><label>数量<input id="qty" type="number" min="1" step="1" value="100" required /></label></div>
-          <label>价格<input id="price" type="number" min=".01" step=".01" required /></label>
-          <button class="btn" type="submit">记录模拟交易</button>
-          <p class="message" id="message"></p>
-          <button class="btn secondary" type="button" id="reset">重置模拟账户</button>
-        </form>
-        <div class="account">
-          <h3>本机模拟组合</h3>
-          <div class="account-top"><div><span>总资产</span><strong id="equity">—</strong></div><div><span>可用现金</span><strong id="cash">—</strong></div><div><span>持仓市值</span><strong id="marketValue">—</strong></div></div>
-          <div style="overflow:auto"><table class="pos-table"><thead><tr><th>代码/名称</th><th>数量</th><th>成本</th><th>最新价</th><th>浮动盈亏</th></tr></thead><tbody id="positions"></tbody></table></div>
-        </div>
-      </div>
+      <p class="chart-note">技术图表只用于结构核验：指数环境、周线位置、日线趋势、成交量和公告证据必须交叉确认，不能由单根K线直接推出交易结论。</p>
     </section>
 
     <section class="section light" id="sources">
@@ -335,16 +322,12 @@
         <a class="source-card" href="https://data.stats.gov.cn/" target="_blank" rel="noreferrer"><span>宏观</span><h3>国家统计局</h3><p>经济数据与发布日程</p></a>
         <a class="source-card" href="https://www.csrc.gov.cn/shenzhen/c105615/c7638512/content.shtml" target="_blank" rel="noreferrer"><span>防骗</span><h3>警惕AI量化荐股骗局</h3><p>证监局关于资质、夸大胜率与收费荐股的风险提示</p></a>
       </div>
-      <div class="warning">重要提示：本页仅展示固定规则自动筛选的模拟研究样本，不提供个性化投资建议、不收取荐股费用、不设目标价、不承诺收益。AI可能出错，历史命中率和回测结果不能保证未来收益，请勿直接照单实盘操作。</div>
+      <div class="warning">重要提示：本页仅展示固定规则自动筛选的公开研究样本，不提供个性化投资建议、不收取荐股费用、不设目标价、不承诺收益。AI可能出错，历史命中率和回测结果不能保证未来收益，请勿直接照单实盘操作。</div>
     </section>
   </main>
-  <footer>© A股AI研究部公开联网学习版。模拟数据仅保存在当前浏览器；清除站点数据会同时清除模拟账户。</footer>
+  <footer>© A股AI研究部联网量化投研台。公开行情可能延迟，研究结论应回到交易所公告、法定披露和券商终端核验。</footer>
 
   <script>
-    const scoreDefs=[
-      ["quality","公司质量",20,72],["value","估值吸引力",15,61],["trend","趋势强度",20,68],
-      ["earnings","盈利变化",15,64],["catalyst","事件催化",10,58],["safety","风险安全",20,76]
-    ];
     const agents=[
       ["AI-01","林策","管理层","部门总监","研究议题、观察池审批与三总监会商","晨会任务单、观察池审批单","用户"],
       ["AI-02","周衡","管理层","副总监兼首席策略总监","市场风格、仓位环境与行业配置","市场状态灯、行业配置建议","林策"],
@@ -358,7 +341,7 @@
       ["AI-10","周砺","行业研究组","金融周期研究员","金融、地产、煤炭、有色与化工","周期位置表、供需利润","林策"],
       ["AI-11","盘星","市场监测组","盘面监测员·指数广度","指数、成交额、涨跌家数与市场宽度","盘面广度快照、异常提示","周衡"],
       ["AI-12","异动哨","市场监测组","盘面监测员·板块异动","板块、涨停、量价异动与拥挤度","异动列表、拥挤警报","周衡"],
-      ["AI-13","仿真盘","市场监测组","模拟交易员","执行批准后的模拟指令并维护日志","模拟成交单、持仓日报","顾岚"],
+      ["AI-13","组合哨","市场监测组","观察池跟踪员","跟踪批准后的研究观察池与信号状态","观察池日报、信号失效日志","顾岚"],
       ["AI-14","因子镜","量化数据组","量化研究员·多因子","质量、估值、动量与盈利变化因子","因子得分、回测摘要","周衡"],
       ["AI-15","轮动钟","量化数据组","量化研究员·择时轮动","情绪、择时、行业轮动与策略失效","轮动排名、失效诊断","周衡"],
       ["AI-16","数据脉","量化数据组","数据工程师","行情、公告、财务数据与仪表盘状态","数据健康报告、缺失清单","稳盾"],
@@ -368,29 +351,8 @@
       ["AI-20","晨钟","信息运营组","报告运营专员","晨报、午报、收盘报告与会议纪要","四时段简报、会商纪要","林策"],
       ["AI-21","稳盾","技术保障组","IT与信息安全工程师","权限、备份、终端安全与系统稳定","运行状态页、安全巡检单","顾岚"]
     ];
-    const scoreList=document.querySelector("#scoreList");
-    scoreDefs.forEach(([key,label,weight,value])=>{
-      const row=document.createElement("div");row.className="score-line";
-      row.innerHTML=`<span>${label} · ${weight}%</span><input id="${key}" type="range" min="0" max="100" value="${value}"><b id="${key}V">${value}</b>`;
-      scoreList.appendChild(row);
-    });
     const roster=document.querySelector("#roster");
     agents.forEach(a=>{const tr=document.createElement("tr");tr.innerHTML=`<td><span class="agent-code">${a[0]}</span><strong>${a[1]}</strong><i class="ready">已配置</i></td><td>${a[2]}</td><td><strong>${a[3]}</strong></td><td>${a[4]}</td><td>${a[5]}</td><td>${a[6]}</td>`;roster.appendChild(tr)});
-    function updateMeeting(){
-      const values={};scoreDefs.forEach(([key])=>{values[key]=Number(document.querySelector("#"+key).value);document.querySelector("#"+key+"V").textContent=values[key]});
-      const penalty=Number(document.querySelector("#marketRegime").value),hard=document.querySelector("#hardRisk").checked;
-      const raw=scoreDefs.reduce((s,[key,,weight])=>s+values[key]*weight/100,0),final=hard?0:Math.max(0,raw-penalty);
-      const research=Math.round((values.quality+values.value+values.earnings)/3);
-      const strategy=Math.round((values.trend+values.catalyst+(100-penalty*4))/3);
-      let outcome=hard?"风险否决":final>=75&&values.safety>=60?"重点研究":final>=60?"继续观察":"暂缓进入";
-      document.querySelector("#finalScore").textContent=final.toFixed(1);document.querySelector("#outcome").textContent=outcome;
-      document.querySelector("#researchScore").textContent=research+"分";document.querySelector("#strategyScore").textContent=strategy+"分";document.querySelector("#riskScore").textContent=(hard?0:values.safety)+"分";
-      document.querySelector("#researchNote").textContent=research>=72?"基本面达到深度研究门槛，仍需核对现金流、一次性损益和同行口径。":"基本面证据不足，先补齐财报与经营验证，不因低估值或故事草率升级。";
-      document.querySelector("#strategyNote").textContent=penalty===15?"弱势环境扣15分，即使个股形态尚可也应降低优先级。":`趋势、催化与市场环境合成${strategy}分，关注信号是否有成交扩散和行业共振。`;
-      document.querySelector("#riskNote").textContent=hard?"发现硬风险，行使独立否决权；风险解除前不得进入模拟组合。":values.safety<55?"风险安全得分不足，不同意升级；先检查波动、流动性、财务与监管标签。":"暂未触发否决，但必须写清失效条件和最大可承受回撤。";
-    }
-    scoreDefs.forEach(([key])=>document.querySelector("#"+key).addEventListener("input",updateMeeting));
-    document.querySelector("#marketRegime").addEventListener("change",updateMeeting);document.querySelector("#hardRisk").addEventListener("change",updateMeeting);updateMeeting();
 
     const marketApi="https://push2delay.eastmoney.com/api/qt";
     const indexSecids="1.000001,0.399001,0.399006,1.000688,1.000300";
@@ -608,7 +570,7 @@
         <div class="quant-stat"><span>进入历史验证</span><strong>${record.testedCount}只</strong></div>
         <div class="quant-stat"><span>历史闸门</span><strong>≥${Math.round(record.threshold*100)}%</strong></div>
         <div class="quant-stat"><span>最终通过</span><strong>${picks.length}/10</strong></div>
-        <div class="quant-stat"><span>持有规则</span><strong>5日模拟</strong></div>`;
+        <div class="quant-stat"><span>跟踪规则</span><strong>5个交易日</strong></div>`;
       const marketState=record.avgIndex>.7?"偏强":record.avgIndex<-.7?"偏弱":"震荡";
       document.querySelector("#quantCommittee").innerHTML=`
         <article class="committee-note"><span>AI-01 林策 · 投研总监</span><strong>${record.testedCount}只完成样本外验证</strong><p>固定规则验证样本不足6次或平均收益不为正，直接退回。</p></article>
@@ -625,7 +587,6 @@
           </div>
           <div class="debate"><div><span>研究员支持理由</span><p>${esc(pick.reason)}</p></div><div><span>总监反方意见</span><p>${esc(pick.counter)}</p></div></div>
           <p class="invalidation">失效条件：收盘跌破20日均线${pick.ma20.toFixed(2)}，或出现重大公告风险时移出观察。</p>
-          <button class="sim-fill" type="button" data-code="${esc(pick.code)}" data-name="${esc(pick.name)}" data-price="${pick.price}">带入模拟成交单</button>
         </article>`).join(""):`<div class="quant-empty">今日没有股票同时通过历史命中率、正期望、当前趋势与风险回撤四道闸门。系统不会为了凑满10只降低标准。</div>`;
     }
     function renderForwardAccuracy(store){
@@ -733,9 +694,46 @@
           <div><span>最大回撤</span><strong>${(result.maxDrawdown*100).toFixed(1)}%</strong></div>`;
         const pass=result.samples>=6&&result.hitRate>=.55&&result.avgReturn>0&&result.maxDrawdown>-.2;
         document.querySelector("#backtestSummary").textContent=`结论：${pass?"达到历史研究门槛":"未达到历史研究门槛"}。系统只在较早58%数据中选择“${result.strategy}”规则，较晚42%数据独立验证，共${result.samples}次不重叠信号；历史结果不保证未来表现。`;
-        message.textContent="回测完成。信号按下一交易日开盘进入、第五个交易日收盘退出，并扣除0.12%模拟成本。";
+        message.textContent="回测完成。信号按下一交易日开盘起算、第五个交易日收盘结束，并扣除0.12%假设成本。";
         drawBacktest(result.curve);
       }catch(error){message.textContent=`回测失败：${error?.message||"历史数据暂时不可用"}`}
+    }
+    function renderControlCenter(universe,indexRows){
+      const valid=universe.filter(stock=>num(stock.f2)>0&&Number.isFinite(Number(stock.f3))),changes=valid.map(stock=>num(stock.f3)).sort((a,b)=>a-b);
+      const breadth=valid.length?valid.filter(stock=>num(stock.f3)>0).length/valid.length*100:0;
+      const medianChange=changes.length?(changes[Math.floor((changes.length-1)/2)]+changes[Math.ceil((changes.length-1)/2)])/2:0;
+      const flowRows=valid.filter(stock=>Number.isFinite(Number(stock.f62))),flowSpread=flowRows.length?flowRows.filter(stock=>num(stock.f62)>0).length/flowRows.length*100:0;
+      const hotCount=valid.filter(stock=>Math.abs(num(stock.f3))>=5).length,coverage=universe.length?valid.length/universe.length*100:0;
+      const avgIndex=average(indexRows.map(item=>num(item.f3))),avgMove=average(valid.map(stock=>Math.abs(num(stock.f3))));
+      const regimeScore=clamp(50+avgIndex*9+(breadth-50)*.42-Math.max(0,avgMove-2.5)*5,0,100);
+      const riskSafety=clamp(100-avgMove*13-hotCount/Math.max(valid.length,1)*100*1.1-Math.max(0,45-breadth)*.55,0,100);
+      const regime=regimeScore>=65?"偏强":regimeScore>=45?"震荡":regimeScore>=30?"偏弱":"高风险";
+      const eligible=universe.filter(stock=>isEligible(stock)&&findResearcher(stock));
+      const sectors={};eligible.forEach(stock=>{const key=String(stock.f100||"行业待核验");sectors[key]??={sum:0,count:0};sectors[key].sum+=num(stock.f3);sectors[key].count++});
+      const leader=Object.entries(sectors).filter(([,value])=>value.count>=2).sort((a,b)=>b[1].sum/b[1].count-a[1].sum/a[1].count)[0];
+      const leaderName=leader?.[0]||"暂无明确主线",leaderChange=leader?leader[1].sum/leader[1].count:0;
+      document.querySelector("#controlMetrics").innerHTML=`
+        <div class="control-kpi"><span>市场状态</span><strong>${regime}</strong><small>综合分 ${regimeScore.toFixed(0)}/100</small></div>
+        <div class="control-kpi"><span>上涨占比</span><strong>${breadth.toFixed(1)}%</strong><small>${valid.filter(stock=>num(stock.f3)>0).length}/${valid.length}只上涨</small></div>
+        <div class="control-kpi"><span>涨跌中位数</span><strong class="${pctClass(medianChange)}">${signed(medianChange)}</strong><small>降低极端值干扰</small></div>
+        <div class="control-kpi"><span>资金扩散</span><strong>${flowSpread.toFixed(1)}%</strong><small>净流入样本占比</small></div>
+        <div class="control-kpi"><span>高波动样本</span><strong>${hotCount}只</strong><small>绝对涨跌≥5%</small></div>
+        <div class="control-kpi"><span>数据覆盖</span><strong>${coverage.toFixed(1)}%</strong><small>${valid.length}/${universe.length}条有效</small></div>`;
+      const signals=[
+        ["市场宽度",breadth,`${breadth.toFixed(0)}%`],
+        ["指数强度",clamp(50+avgIndex*12,0,100),signed(avgIndex)],
+        ["资金扩散",flowSpread,`${flowSpread.toFixed(0)}%`],
+        ["风险安全",riskSafety,`${riskSafety.toFixed(0)}`]
+      ];
+      document.querySelector("#riskSignals").innerHTML=signals.map(([label,value,text])=>`<div class="signal-row"><span>${label}</span><div class="signal-track"><i style="width:${clamp(value,0,100).toFixed(1)}%"></i></div><b>${text}</b></div>`).join("");
+      const breadthView=breadth>=55?"扩散良好":breadth<40?"宽度收缩":"分化运行";
+      const riskView=riskSafety>=65?"风险可控":riskSafety<40?"提高警戒":"保持监控";
+      document.querySelector("#aiStream").innerHTML=`
+        <div class="ai-signal"><span>AI-11 盘星</span><p>上涨占比${breadth.toFixed(1)}%，市场${breadthView}。</p><b>${breadth>=55?"积极":breadth<40?"谨慎":"中性"}</b></div>
+        <div class="ai-signal"><span>AI-14 因子镜</span><p>${eligible.length}只通过实时流动性与异常波动初筛。</p><b>运行</b></div>
+        <div class="ai-signal"><span>AI-15 轮动钟</span><p>当前相对强势方向：${esc(leaderName)} ${signed(leaderChange)}。</p><b>跟踪</b></div>
+        <div class="ai-signal"><span>AI-16 数据脉</span><p>行情字段覆盖${coverage.toFixed(1)}%，${universe.length}只样本已入场。</p><b>${coverage>=95?"健康":"检查"}</b></div>
+        <div class="ai-signal"><span>AI-17 顾岚</span><p>${hotCount}只高波动样本，风险安全分${riskSafety.toFixed(0)}。</p><b>${riskView}</b></div>`;
     }
     function renderResearch(universe,indexRows){
       const eligible=universe.filter(isEligible),excluded=universe.length-eligible.length;
@@ -764,11 +762,8 @@
       const passed=picks.filter(item=>item.stock).length;
       document.querySelector("#researchBrief").innerHTML=`
         <article class="brief-card"><span>AI-01 林策 · 投研总监</span><strong>${passed}位研究员提交观察对象</strong><p>先补齐财报、公告与行业证据，再决定是否进入重点研究。</p></article>
-        <article class="brief-card"><span>AI-02 周衡 · 策略总监</span><strong>主要指数环境：${state}</strong><p>五大指数平均涨跌${signed(avgIndex)}，市场环境已同步到三总监评分器。</p></article>
+        <article class="brief-card"><span>AI-02 周衡 · 策略总监</span><strong>主要指数环境：${state}</strong><p>五大指数平均涨跌${signed(avgIndex)}，市场环境已同步到量化会商。</p></article>
         <article class="brief-card"><span>AI-17 顾岚 · 风控总监</span><strong>排除${excluded}个异常样本</strong><p>ST、退市标签、极端涨跌、低流动性或异常波动不进入观察池。</p></article>`;
-      const marketSelect=document.querySelector("#marketRegime");
-      marketSelect.value=avgIndex>.7?"0":avgIndex<-.7?"15":"5";
-      updateMeeting();
     }
     async function refreshMarket(){
       const pulse=document.querySelector("#marketPulse"),status=document.querySelector("#marketStatus"),updated=document.querySelector("#marketUpdated"),button=document.querySelector("#refreshMarket");
@@ -781,7 +776,7 @@
         const indices=indexData.diff||[],allStocks=universePages.flatMap(page=>page.diff||[]);
         const universe=[...new Map(allStocks.map(stock=>[`${stock.f13}.${stock.f12}`,stock])).values()];
         if(!indices.length||!universe.length)throw new Error("行情样本为空");
-        renderIndices(indices);renderResearch(universe,indices);
+        renderIndices(indices);renderControlCenter(universe,indices);renderResearch(universe,indices);
         latestUniverse=universe;latestIndices=indices;
         pulse.className="pulse ok";status.textContent=`行情已连接 · 扫描${universe.length}只高流动性样本`;
         updated.textContent=`更新时间 ${new Intl.DateTimeFormat("zh-CN",{hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date())}`;
@@ -802,15 +797,6 @@
       if(!/^\d{6}$/.test(code)){document.querySelector("#backtestMessage").textContent="请输入6位A股代码。";return}
       runBacktest(code);
     });
-    document.addEventListener("click",event=>{
-      const button=event.target.closest(".sim-fill");
-      if(!button)return;
-      document.querySelector("#code").value=button.dataset.code;
-      document.querySelector("#name").value=button.dataset.name;
-      document.querySelector("#price").value=button.dataset.price;
-      document.querySelector("#message").textContent="已从量化观察名单带入，仅供模拟练习；请自行决定是否记录。";
-      document.querySelector("#sim").scrollIntoView({behavior:"smooth"});
-    });
     document.querySelector("#quoteForm").addEventListener("submit",async event=>{
       event.preventDefault();
       const code=document.querySelector("#quoteCode").value.trim(),result=document.querySelector("#quoteResult");
@@ -829,25 +815,6 @@
     refreshMarket();
     setInterval(()=>{if(!document.hidden)refreshMarket()},60000);
 
-    const fmt=n=>new Intl.NumberFormat("zh-CN",{style:"currency",currency:"CNY",maximumFractionDigits:2}).format(n);
-    let sim;try{sim=JSON.parse(localStorage.getItem("ashare-offline-sim"))||{cash:1000000,positions:[]}}catch{sim={cash:1000000,positions:[]}}
-    function save(){localStorage.setItem("ashare-offline-sim",JSON.stringify(sim))}
-    function renderSim(){
-      const mv=sim.positions.reduce((s,p)=>s+p.qty*p.last,0);document.querySelector("#cash").textContent=fmt(sim.cash);document.querySelector("#marketValue").textContent=fmt(mv);document.querySelector("#equity").textContent=fmt(sim.cash+mv);
-      const body=document.querySelector("#positions");body.innerHTML="";
-      if(!sim.positions.length){body.innerHTML='<tr><td colspan="5">暂无持仓，请先记录一笔模拟买入。</td></tr>';return}
-      sim.positions.forEach(p=>{const pnl=(p.last-p.cost)*p.qty,tr=document.createElement("tr");tr.innerHTML=`<td><strong>${p.code}</strong>${p.name}</td><td>${p.qty}</td><td>${fmt(p.cost)}</td><td>${fmt(p.last)}</td><td style="color:${pnl>=0?'#bc3b2d':'#1d765e'}">${fmt(pnl)}</td>`;body.appendChild(tr)})
-    }
-    document.querySelector("#tradeForm").addEventListener("submit",e=>{
-      e.preventDefault();const code=document.querySelector("#code").value.trim().toUpperCase(),name=document.querySelector("#name").value.trim(),side=document.querySelector("#side").value,qty=Number(document.querySelector("#qty").value),price=Number(document.querySelector("#price").value),msg=document.querySelector("#message");
-      if(!code||!name||!Number.isInteger(qty)||qty<=0||price<=0){msg.textContent="请填写有效代码、名称、整数数量和价格。";return}
-      const fee=Math.max(5,qty*price*.0005),p=sim.positions.find(x=>x.code===code);
-      if(side==="buy"){const total=qty*price+fee;if(total>sim.cash){msg.textContent="模拟现金不足。";return}sim.cash-=total;if(p){p.cost=(p.cost*p.qty+total)/(p.qty+qty);p.qty+=qty;p.last=price}else sim.positions.push({code,name,qty,cost:total/qty,last:price});msg.textContent=`已记录模拟买入：${name} ${qty}股。`}
-      else{if(!p||p.qty<qty){msg.textContent="模拟持仓不足。";return}sim.cash+=qty*price-fee;p.qty-=qty;p.last=price;sim.positions=sim.positions.filter(x=>x.qty>0);msg.textContent=`已记录模拟卖出：${name} ${qty}股。`}
-      save();renderSim();document.querySelector("#price").value="";
-    });
-    document.querySelector("#reset").addEventListener("click",()=>{if(confirm("确认清空模拟持仓并恢复100万元？")){sim={cash:1000000,positions:[]};save();renderSim();document.querySelector("#message").textContent="模拟账户已重置。"}});
-    renderSim();
   </script>
 </body>
 </html>
