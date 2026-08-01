@@ -40,6 +40,7 @@
     .metric span,.metric small{display:block;color:#8d9a94;font-size:9px}
     .metric strong{display:block;margin:5px 0;color:#efc48f;font-family:Georgia,serif;font-size:27px}
     .section{padding:82px clamp(18px,5vw,76px)}
+    section[id],#stock-lab{scroll-margin-top:74px}
     .dark{background:var(--dark);color:white}
     .heading{max-width:1320px;margin:0 auto 34px;display:grid;grid-template-columns:1fr minmax(280px,.56fr);gap:38px;align-items:end}
     .heading h2{margin:0;font-size:clamp(34px,4vw,56px);line-height:1.1}
@@ -99,6 +100,17 @@
     .inline-form{display:flex;gap:8px}.inline-form input{margin:0;border-color:var(--line);background:white;color:var(--ink)}.inline-form .btn{white-space:nowrap}
     .quote-result{min-height:112px}.quote-result p{margin:5px 0;color:var(--muted);font-size:10px;line-height:1.7}
     .quote-kpis{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}.quote-kpis span{padding:7px 9px;border-radius:8px;background:#f0ece2;font-size:9px}
+    .stock-lab{max-width:1320px;margin:34px auto;padding:24px;border:1px solid var(--line);border-radius:22px;background:var(--card);box-shadow:var(--shadow)}
+    .stock-lab-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+    .stock-lab-head h2{margin:4px 0 0;font-size:clamp(28px,3vw,42px)}.stock-lab-head p{max-width:540px;margin:0;color:var(--muted);font-size:9px;line-height:1.7}
+    .stock-query{display:grid;grid-template-columns:minmax(230px,.42fr) auto 1fr;gap:9px;align-items:end;margin:18px 0}.stock-query label{color:var(--muted)}.stock-query input{margin-top:6px;border-color:var(--line);background:white;color:var(--ink)}.stock-query .btn{height:39px}.stock-query small{align-self:center;color:var(--muted);font-size:8px;line-height:1.6}
+    .stock-overview{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:10px}
+    .stock-snapshot,.stock-verdict{padding:17px;border-radius:14px;background:#f0ece2}.stock-snapshot h3,.stock-verdict h3{margin:0;font-size:14px}.stock-snapshot p,.stock-verdict p{margin:7px 0 0;color:var(--muted);font-size:9px;line-height:1.7}
+    .decision-line{display:flex;align-items:center;gap:9px;margin:9px 0}.decision-badge{padding:7px 10px;border-radius:999px;background:var(--dark);color:#efc18a;font-size:10px;font-weight:900}.confidence{color:var(--muted);font-size:8px}
+    .stock-evidence{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin:10px 0}.stock-evidence div{padding:11px;border:1px solid var(--line);border-radius:10px;background:white}.stock-evidence span{display:block;color:var(--muted);font-size:7px}.stock-evidence strong{display:block;margin-top:4px;font-size:11px}
+    .scenario-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.scenario-card{padding:14px;border:1px solid var(--line);border-radius:12px;background:white}.scenario-card header{display:flex;justify-content:space-between;gap:10px}.scenario-card header span{font-size:9px;font-weight:900}.scenario-card header strong{font-family:Georgia,serif;font-size:20px}.scenario-bar{height:6px;margin:9px 0;overflow:hidden;border-radius:999px;background:#ebe5da}.scenario-bar i{display:block;height:100%;border-radius:999px}.scenario-card.upcase i{background:var(--red)}.scenario-card.sidecase i{background:var(--gold)}.scenario-card.downcase i{background:var(--green)}.scenario-card p{margin:0;color:var(--muted);font-size:8px;line-height:1.6}
+    .discussion-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.discussion-card{padding:13px;border-radius:12px;background:var(--dark);color:white}.discussion-card span{color:#dc907f;font-size:7px;font-weight:900}.discussion-card strong{display:block;margin:6px 0;font-size:10px}.discussion-card p{margin:0;color:#aeb8b2;font-size:8px;line-height:1.6}
+    .stock-levels{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stock-levels div{padding:11px;border-radius:10px;background:#f0ece2}.stock-levels span{display:block;color:var(--muted);font-size:7px}.stock-levels strong{display:block;margin-top:4px;font-size:10px}.stock-levels small{display:block;margin-top:4px;color:var(--muted);font-size:7px}
     .brief-grid{max-width:1320px;margin:0 auto 14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
     .brief-card{padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--card)}.brief-card span{color:var(--red);font-size:8px;font-weight:900}.brief-card strong{display:block;margin:6px 0;font-size:12px}.brief-card p{margin:0;color:var(--muted);font-size:9px;line-height:1.7}
     .control-deck{max-width:1320px;margin:38px auto;padding:24px;border-radius:22px;background:var(--dark);color:white;box-shadow:var(--shadow)}
@@ -146,14 +158,14 @@
     .backtest-report canvas{width:100%;height:150px;margin-top:10px;border-radius:10px;background:#0f1513}.backtest-summary{margin:9px 0 0;color:#9da8a2;font-size:8px;line-height:1.65}
     .warning{max-width:1320px;margin:20px auto 0;padding:15px;border:1px solid #d8c9a8;border-radius:12px;background:#f3ead7;color:#6f624b;font-size:10px;line-height:1.7}
     footer{padding:30px clamp(18px,5vw,76px);border-top:1px solid var(--line);color:var(--muted);font-size:9px;line-height:1.7}
-    @media(max-width:980px){nav{display:none}.hero,.market-tools,.backtest-head,.control-panels{grid-template-columns:1fr}.source-grid{grid-template-columns:1fr}.workflow{grid-template-columns:repeat(2,1fr)}.index-grid{grid-template-columns:repeat(2,1fr)}.pick-grid,.daily-grid{grid-template-columns:repeat(2,1fr)}.quant-stat-grid,.control-grid{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:640px){.hero{padding-top:48px}.offline{margin-left:auto}.hero-card{padding:17px}.heading{grid-template-columns:1fr;gap:12px}.workflow,.brief-grid,.pick-grid,.daily-grid,.committee-grid,.accuracy-strip{grid-template-columns:1fr}.workflow div{border-right:0;border-bottom:1px solid rgba(255,255,255,.09)}.index-grid,.quant-stat-grid,.control-grid{grid-template-columns:repeat(2,1fr)}.daily-metrics,.backtest-metrics{grid-template-columns:repeat(2,1fr)}.debate{grid-template-columns:1fr}.chart-frame{height:480px}.live-bar,.quant-toolbar,.control-head{align-items:flex-start;flex-wrap:wrap}.live-bar .btn{margin-left:0}.quant-lab,.control-deck{padding:17px}.signal-row{grid-template-columns:92px 1fr 36px}}
+    @media(max-width:980px){nav{display:none}.hero,.market-tools,.backtest-head,.control-panels,.stock-overview{grid-template-columns:1fr}.source-grid{grid-template-columns:1fr}.workflow{grid-template-columns:repeat(2,1fr)}.index-grid{grid-template-columns:repeat(2,1fr)}.pick-grid,.daily-grid,.discussion-grid{grid-template-columns:repeat(2,1fr)}.quant-stat-grid,.control-grid,.stock-evidence{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:640px){.hero{padding-top:48px}.offline{margin-left:auto}.hero-card{padding:17px}.heading{grid-template-columns:1fr;gap:12px}.workflow,.brief-grid,.pick-grid,.daily-grid,.committee-grid,.accuracy-strip,.scenario-grid,.discussion-grid{grid-template-columns:1fr}.workflow div{border-right:0;border-bottom:1px solid rgba(255,255,255,.09)}.index-grid,.quant-stat-grid,.control-grid,.stock-evidence,.stock-levels{grid-template-columns:repeat(2,1fr)}.daily-metrics,.backtest-metrics{grid-template-columns:repeat(2,1fr)}.debate{grid-template-columns:1fr}.chart-frame{height:480px}.live-bar,.quant-toolbar,.control-head,.stock-lab-head{align-items:flex-start;flex-wrap:wrap}.live-bar .btn{margin-left:0}.quant-lab,.control-deck,.stock-lab{padding:17px}.signal-row{grid-template-columns:92px 1fr 36px}.stock-query{grid-template-columns:1fr}.stock-query .btn{width:100%}}
   </style>
 </head>
 <body>
   <header class="topbar">
     <a class="brand" href="#top"><span class="mark">A</span><span>A股AI研究部<small>21位AI专员 · 联网量化投研台</small></span></a>
-    <nav><a href="#market">实时行情</a><a href="#control">智能中枢</a><a href="#quant">AI选股</a><a href="#team">AI部门</a><a href="#chart">技术图表</a><a href="#sources">官方来源</a></nav>
+    <nav><a href="#market">实时行情</a><a href="#stock-lab">单股会诊</a><a href="#control">智能中枢</a><a href="#quant">AI选股</a><a href="#team">AI部门</a><a href="#chart">技术图表</a><a href="#sources">官方来源</a></nav>
     <span class="offline">量化监控版</span>
   </header>
 
@@ -192,13 +204,41 @@
       <div class="live-console">
         <div class="live-bar"><i class="pulse" id="marketPulse"></i><strong id="marketStatus">正在连接行情…</strong><small id="marketUpdated">等待首次刷新</small><button class="btn secondary" id="refreshMarket" type="button">立即刷新</button></div>
         <div class="index-grid" id="indexGrid"><div class="index-card"><span>加载中</span><strong>—</strong><b class="flat">—</b></div></div>
-        <div class="market-tools">
-          <form class="quote-search" id="quoteForm">
-            <h3>查询A股实时快照</h3>
-            <div class="inline-form"><input id="quoteCode" inputmode="numeric" maxlength="6" placeholder="输入6位代码，如 600519" required /><button class="btn" type="submit">查询</button></div>
-          </form>
-          <div class="quote-result" id="quoteResult"><h3>单股证据卡</h3><p>输入代码后显示最新价、涨跌幅、成交额、换手率、估值与资金流向。</p></div>
+      </div>
+      <div class="stock-lab" id="stock-lab">
+        <div class="stock-lab-head">
+          <div><p class="eyebrow">单股AI联合会诊</p><h2>行情、量化、策略、事件与风控共同讨论</h2></div>
+          <p>输入A股代码后读取近实时快照和历史日线，生成5日三情景概率、20日趋势判断、关键价位及多岗位讨论纪要。概率是规则模型估计，不是收益承诺。</p>
         </div>
+        <form class="stock-query" id="quoteForm">
+          <label>6位A股代码<input id="quoteCode" inputmode="numeric" maxlength="6" value="600519" placeholder="如 600519" required /></label>
+          <button class="btn" type="submit">启动AI会诊</button>
+          <small id="stockConsultStatus">等待代码。建议先核验近期公告、财报和监管信息。</small>
+        </form>
+        <div class="stock-overview">
+          <article class="stock-snapshot" id="quoteResult"><h3>单股行情快照</h3><p>会诊后显示价格、涨跌、成交、估值、均线与波动率。</p></article>
+          <article class="stock-verdict" id="stockDecision"><h3>投研总监统一结论</h3><div class="decision-line"><span class="decision-badge">等待会诊</span><span class="confidence">置信度 —</span></div><p>系统不会输出“必涨”或强制买卖指令。</p></article>
+        </div>
+        <div class="stock-evidence" id="stockEvidence">
+          <div><span>最新价</span><strong>—</strong></div><div><span>20日均线</span><strong>—</strong></div><div><span>60日均线</span><strong>—</strong></div><div><span>20日动量</span><strong>—</strong></div><div><span>20日波动</span><strong>—</strong></div><div><span>历史验证</span><strong>—</strong></div>
+        </div>
+        <div class="scenario-grid" id="stockScenarios">
+          <article class="scenario-card upcase"><header><span>5日上行情景</span><strong>—</strong></header><div class="scenario-bar"><i style="width:0%"></i></div><p>等待趋势、资金与历史验证。</p></article>
+          <article class="scenario-card sidecase"><header><span>5日震荡情景</span><strong>—</strong></header><div class="scenario-bar"><i style="width:0%"></i></div><p>等待波动率和关键价位。</p></article>
+          <article class="scenario-card downcase"><header><span>5日下行情景</span><strong>—</strong></header><div class="scenario-bar"><i style="width:0%"></i></div><p>等待回撤和失效条件。</p></article>
+        </div>
+        <div class="discussion-grid" id="stockDiscussion">
+          <article class="discussion-card"><span>AI-行业研究员</span><strong>等待公司与行业信息</strong><p>行业归属与基本面需要核验。</p></article>
+          <article class="discussion-card"><span>AI-14 因子镜</span><strong>等待量化因子</strong><p>将检查趋势、动量、资金和估值。</p></article>
+          <article class="discussion-card"><span>AI-02 周衡</span><strong>等待市场环境</strong><p>将评估指数环境与策略适配。</p></article>
+          <article class="discussion-card"><span>AI-19 事件眼</span><strong>公告核验待办</strong><p>不读取公告全文时不做事件断言。</p></article>
+          <article class="discussion-card"><span>AI-17 顾岚</span><strong>风险闸门待命</strong><p>将给出关键失效位与风险标签。</p></article>
+          <article class="discussion-card"><span>AI-01 林策</span><strong>等待其他岗位发言</strong><p>汇总后形成研究优先级。</p></article>
+        </div>
+        <div class="stock-levels" id="stockLevels">
+          <div><span>20日支撑参考</span><strong>—</strong><small>近20日低点</small></div><div><span>趋势失效参考</span><strong>—</strong><small>20日均线</small></div><div><span>20日压力参考</span><strong>—</strong><small>近20日高点</small></div><div><span>20日方向</span><strong>—</strong><small>均线与动量综合</small></div>
+        </div>
+        <div class="method-note" style="margin-bottom:0">“操作建议”仅表示研究动作：优先研究、继续观察、等待确认或风险回避，不等同于买入、卖出或仓位建议。事件分析必须回到交易所公告和法定披露核验。</div>
       </div>
       <div class="control-deck" id="control">
         <div class="control-head">
@@ -357,7 +397,7 @@
     const marketApi="https://push2delay.eastmoney.com/api/qt";
     const indexSecids="1.000001,0.399001,0.399006,1.000688,1.000300";
     const marketFields="f12,f13,f14,f2,f3,f4,f5,f6,f7,f8,f9,f10,f15,f16,f17,f18,f20,f21,f23,f24,f25,f62,f100";
-    const quoteFields="f57,f58,f43,f44,f45,f46,f47,f48,f50,f60,f116,f117,f162,f167,f168,f169,f170";
+    const quoteFields="f57,f58,f43,f44,f45,f46,f47,f48,f50,f60,f62,f100,f116,f117,f162,f167,f168,f169,f170";
     const historyApi="https://push2his.eastmoney.com/api/qt/stock/kline/get";
     const quantStoreKey="ashare-quant-daily-v1";
     let latestUniverse=[],latestIndices=[],quantBusy=false;
@@ -698,6 +738,81 @@
         drawBacktest(result.curve);
       }catch(error){message.textContent=`回测失败：${error?.message||"历史数据暂时不可用"}`}
     }
+    const standardDeviation=values=>{
+      if(!values.length)return 0;
+      const mean=average(values);
+      return Math.sqrt(average(values.map(value=>(value-mean)**2)));
+    };
+    function renderStockConsultation(code,stock,history){
+      const bars=history.bars||[];
+      if(bars.length<180)throw new Error("历史日线不足180个交易日，无法完成多模型会诊");
+      const live=latestUniverse.find(item=>String(item.f12)===code)||{},last=bars.length-1;
+      const name=String(stock.f58||history.name||live.f14||code),price=num(stock.f43,bars[last].close),change=num(stock.f170,live.f3);
+      const ma20=average(bars.slice(-20).map(bar=>bar.close)),ma60=average(bars.slice(-60).map(bar=>bar.close));
+      const prevMa20=average(bars.slice(-40,-20).map(bar=>bar.close)),momentum20=price/bars.at(-21).close-1,momentum60=price/bars.at(-61).close-1;
+      const dailyVol=standardDeviation(bars.slice(-20).map(bar=>bar.change)),support20=Math.min(...bars.slice(-20).map(bar=>bar.low)),resistance20=Math.max(...bars.slice(-20).map(bar=>bar.high));
+      const validation=evaluateHistory(bars),flow=num(live.f62,stock.f62),amount=num(stock.f48,live.f6),volumeRatio=num(stock.f50,num(live.f10,1));
+      const turnover=num(stock.f168,live.f8),pe=num(stock.f162,num(live.f9,-1)),pb=num(stock.f167,num(live.f23,-1));
+      const avgIndex=average(latestIndices.map(item=>num(item.f3))),sector=String(live.f100||stock.f100||"行业待核验"),researcher=findResearcher(live);
+      let score=50;
+      score+=price>ma20?8:-8;score+=ma20>ma60?10:-10;score+=ma20>prevMa20?5:-5;
+      score+=momentum20>0&&momentum20<.30?8:momentum20<-.10?-10:momentum20>.45?-6:0;
+      score+=flow>0?7:flow<0?-7:0;score+=volumeRatio>=1&&volumeRatio<=2.5?5:volumeRatio>3?-4:0;
+      score+=avgIndex>.7?5:avgIndex<-.7?-5:0;
+      if(validation.samples>=6){score+=(validation.hitRate-.5)*22;score+=clamp(validation.avgReturn*180,-7,7)}
+      if(dailyVol>4)score-=8;if(Math.abs(change)>=8)score-=8;if(turnover>20)score-=5;
+      const hardRisk=/ST|退/.test(name),finalScore=Math.round(clamp(hardRisk?10:score,0,100));
+      const riskFlags=[dailyVol>4,Math.abs(change)>=8,price<ma60,validation.maxDrawdown<-.15,turnover>20].filter(Boolean).length;
+      const upRaw=clamp(28+(finalScore-50)*.65,10,70),downRaw=clamp(27+(50-finalScore)*.62+riskFlags*3,10,70),sideRaw=clamp(45-Math.abs(finalScore-50)*.22+(dailyVol<2.5?6:0),15,60);
+      const total=upRaw+sideRaw+downRaw,up=Math.round(upRaw/total*100),side=Math.round(sideRaw/total*100),down=100-up-side;
+      const dominant=up>=side&&up>=down?"上行":down>=side?"下行":"震荡";
+      const trend20=ma20>ma60&&momentum20>0?"趋势偏强":ma20<ma60&&momentum20<0?"趋势偏弱":"区间震荡";
+      const passed=validation.samples>=6&&validation.hitRate>=.55&&validation.avgReturn>0&&validation.maxDrawdown>-.2;
+      const action=hardRisk||finalScore<35||(price<ma60&&momentum20<-.10)?"风险回避":finalScore>=68&&passed?"优先研究":finalScore>=52?"继续观察":"等待确认";
+      const confidence=Math.round(clamp(45+Math.min(validation.samples,12)*2+Math.abs(finalScore-50)*.45-(dailyVol>4?8:0),40,82));
+      const positives=[];if(price>ma20)positives.push("价格在20日均线上方");if(ma20>ma60)positives.push("中短期均线多头");if(flow>0)positives.push("资金净流入");if(passed)positives.push("样本外验证达标");
+      const negatives=[];if(price<ma20)negatives.push("价格低于20日均线");if(flow<0)negatives.push("资金净流出");if(dailyVol>4)negatives.push("近期波动偏高");if(!passed)negatives.push("历史验证未达门槛");
+      document.querySelector("#quoteResult").innerHTML=`<h3>${esc(name)} <small>${esc(code)} · ${esc(sector)}</small></h3>
+        <div class="pick-price"><strong>${price.toFixed(2)}</strong><b class="${pctClass(change)}">${signed(change)}</b></div>
+        <div class="quote-kpis"><span>成交额 ${large(amount)}</span><span>换手 ${turnover.toFixed(2)}%</span><span>量比 ${volumeRatio.toFixed(2)}</span><span>PE ${pe>0?pe.toFixed(1):"待核验"}</span><span>PB ${pb>0?pb.toFixed(2):"待核验"}</span><span>资金净额 ${large(flow)}</span></div>
+        <p>行情时间以公开数据源为准；公告、停复牌和财务结论需回到法定披露核验。</p>`;
+      document.querySelector("#stockDecision").innerHTML=`<h3>AI-01 林策 · 投研总监统一结论</h3><div class="decision-line"><span class="decision-badge">${action}</span><span class="confidence">模型置信度 ${confidence}% · 综合研究分 ${finalScore}</span></div>
+        <p>5日主情景：${dominant}；20日判断：${trend20}。支持证据：${positives.slice(0,3).join("、")||"暂缺强证据"}；反方证据：${negatives.slice(0,3).join("、")||"未触发主要技术风险"}。</p>`;
+      document.querySelector("#stockEvidence").innerHTML=`
+        <div><span>最新价</span><strong>${price.toFixed(2)}</strong></div><div><span>20日均线</span><strong>${ma20.toFixed(2)}</strong></div><div><span>60日均线</span><strong>${ma60.toFixed(2)}</strong></div><div><span>20日动量</span><strong class="${pctClass(momentum20*100)}">${formatPct(momentum20)}</strong></div><div><span>20日波动</span><strong>${dailyVol.toFixed(2)}%</strong></div><div><span>历史验证</span><strong>${validation.samples}次 / ${(validation.hitRate*100).toFixed(1)}%</strong></div>`;
+      const scenarios=[
+        ["upcase","5日上行情景",up,`触发条件：守住MA20 ${ma20.toFixed(2)}，且资金与成交继续扩散。`],
+        ["sidecase","5日震荡情景",side,`参考区间：${support20.toFixed(2)}—${resistance20.toFixed(2)}，量价缺少单边确认。`],
+        ["downcase","5日下行情景",down,`风险条件：收盘跌破MA20 ${ma20.toFixed(2)}，或公告出现重大负面。`]
+      ];
+      document.querySelector("#stockScenarios").innerHTML=scenarios.map(([klass,label,probability,note])=>`<article class="scenario-card ${klass}"><header><span>${label}</span><strong>${probability}%</strong></header><div class="scenario-bar"><i style="width:${probability}%"></i></div><p>${note}</p></article>`).join("");
+      const marketState=avgIndex>.7?"偏强":avgIndex<-.7?"偏弱":"震荡";
+      document.querySelector("#stockDiscussion").innerHTML=`
+        <article class="discussion-card"><span>${esc(researcher?.agent||"AI-行业研究员")} · ${esc(researcher?.role||"行业覆盖待确认")}</span><strong>${esc(sector)}纳入行业核验</strong><p>量价只能提出研究线索，财报质量、订单和行业景气尚需补证。</p></article>
+        <article class="discussion-card"><span>AI-14 因子镜 · 量化研究员</span><strong>${validation.strategy} · ${passed?"历史闸门通过":"历史闸门未通过"}</strong><p>${validation.samples}次样本外信号，命中率${(validation.hitRate*100).toFixed(1)}%，平均5日${formatPct(validation.avgReturn)}。</p></article>
+        <article class="discussion-card"><span>AI-02 周衡 · 策略总监</span><strong>市场${marketState} · 5日${dominant}概率最高</strong><p>五大指数平均${signed(avgIndex)}，个股评分已接受市场环境修正。</p></article>
+        <article class="discussion-card"><span>AI-19 事件眼 · 公告分析员</span><strong>公告全文尚未逐项核验</strong><p>需检查业绩预告、减持、问询、处罚、重组和停复牌；未核验前不把事件当作利好或利空。</p></article>
+        <article class="discussion-card"><span>AI-17 顾岚 · 风控总监</span><strong>${riskFlags?`${riskFlags}项风险标签触发`:"主要技术风险暂未触发"}</strong><p>20日波动${dailyVol.toFixed(2)}%，历史最大回撤${(validation.maxDrawdown*100).toFixed(1)}%；跌破${ma20.toFixed(2)}视为趋势失效参考。</p></article>
+        <article class="discussion-card"><span>AI-01 林策 · 投研总监</span><strong>终审动作：${action}</strong><p>结论由趋势、资金、市场、历史验证和风险共同决定；没有公告与财报证据时不得升级为确定性判断。</p></article>`;
+      document.querySelector("#stockLevels").innerHTML=`
+        <div><span>20日支撑参考</span><strong>${support20.toFixed(2)}</strong><small>近20日最低价</small></div><div><span>趋势失效参考</span><strong>${ma20.toFixed(2)}</strong><small>收盘跌破需重新会诊</small></div><div><span>20日压力参考</span><strong>${resistance20.toFixed(2)}</strong><small>近20日最高价</small></div><div><span>20日方向</span><strong>${trend20}</strong><small>60日动量 ${formatPct(momentum60)}</small></div>`;
+      document.querySelector("#stockConsultStatus").textContent=`会诊完成 · ${name} · ${new Intl.DateTimeFormat("zh-CN",{hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date())}`;
+      document.querySelector("#backtestCode").value=code;
+    }
+    async function runStockConsultation(code){
+      const status=document.querySelector("#stockConsultStatus"),market=/^[569]/.test(code)?1:0;
+      status.textContent="六个AI岗位正在读取行情、历史日线并执行讨论…";
+      try{
+        const [stock,history]=await Promise.all([
+          getJson(`${marketApi}/stock/get?fltt=2&invt=2&secid=${market}.${code}&fields=${quoteFields}`),
+          fetchHistory(code,market)
+        ]);
+        renderStockConsultation(code,stock,history);
+      }catch(error){
+        status.textContent=`会诊失败：${error?.message||"公开数据暂时不可用"}`;
+        document.querySelector("#quoteResult").innerHTML="<h3>单股数据暂时不可用</h3><p>代码可能不存在，或公开行情源正在限流，请稍后重试。</p>";
+      }
+    }
     function renderControlCenter(universe,indexRows){
       const valid=universe.filter(stock=>num(stock.f2)>0&&Number.isFinite(Number(stock.f3))),changes=valid.map(stock=>num(stock.f3)).sort((a,b)=>a-b);
       const breadth=valid.length?valid.filter(stock=>num(stock.f3)>0).length/valid.length*100:0;
@@ -797,22 +912,13 @@
       if(!/^\d{6}$/.test(code)){document.querySelector("#backtestMessage").textContent="请输入6位A股代码。";return}
       runBacktest(code);
     });
-    document.querySelector("#quoteForm").addEventListener("submit",async event=>{
+    document.querySelector("#quoteForm").addEventListener("submit",event=>{
       event.preventDefault();
-      const code=document.querySelector("#quoteCode").value.trim(),result=document.querySelector("#quoteResult");
-      if(!/^\d{6}$/.test(code)){result.innerHTML="<h3>代码格式错误</h3><p>请输入6位A股代码。</p>";return}
-      result.innerHTML="<h3>正在读取行情…</h3><p>请稍候。</p>";
-      const market=/^[569]/.test(code)?1:0;
-      try{
-        const data=await getJson(`${marketApi}/stock/get?fltt=2&invt=2&secid=${market}.${code}&fields=${quoteFields}`);
-        const stock=data;
-        result.innerHTML=`<h3>${esc(stock.f58||code)} <small>${esc(stock.f57||code)}</small></h3>
-          <div class="pick-price"><strong>${num(stock.f43).toFixed(2)}</strong><b class="${pctClass(stock.f170)}">${signed(stock.f170)}</b></div>
-          <div class="quote-kpis"><span>成交额 ${large(stock.f48)}</span><span>换手 ${num(stock.f168).toFixed(2)}%</span><span>市盈率 ${num(stock.f162,-1)>0?num(stock.f162).toFixed(2):"待核验"}</span><span>总市值 ${large(stock.f116)}</span></div>
-          <p>行情快照仅供研究核验，正式数据以交易所和券商终端为准。</p>`;
-      }catch{result.innerHTML="<h3>查询失败</h3><p>代码可能不存在，或公开行情源暂时不可用。</p>"}
+      const code=document.querySelector("#quoteCode").value.trim();
+      if(!/^\d{6}$/.test(code)){document.querySelector("#stockConsultStatus").textContent="请输入6位A股代码。";return}
+      runStockConsultation(code);
     });
-    refreshMarket();
+    refreshMarket().then(()=>runStockConsultation(document.querySelector("#quoteCode").value.trim()));
     setInterval(()=>{if(!document.hidden)refreshMarket()},60000);
 
   </script>
